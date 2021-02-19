@@ -59,3 +59,16 @@ Our energy-friendly EFM32 and EFR32 microcontrollers (MCUs) are ideal for ultra-
 # Lab #
 ## Creating the Project ##
 ## Documentation ##
+
+# Code Explanation #
+## Creating the Project ##
+## Documentation ##
+
+
+# Source #
+## Creating the Project ##
+## Documentation ##
+
+# Reference #
+## Creating the Project ##
+## Documentation ##
