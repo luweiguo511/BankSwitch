@@ -98,10 +98,16 @@ bbb
 15. Select the Software Components tab at the top.
 16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
 17. The list of EMLIB source files is available under "Peripherals". Install the following components using the Install button as shown in the image. The process is repeated for all 4 components.
-- IADC
-- LDMA
+- Platfrom-Board Driver->ICM20648 -> Motion Sensor
+- Bluetooth->GATT->Inertial Measurement Unit GATT Service.
 - LETIMER
 - PRS
+explaination:
+### Platfrom-Board Driver->ICM20648 -> Motion Sensor ###
+for the motion sensor component, you will see the file was added.
+the file was generated automatically.
+You can configure the pin now with the configure button.
+### Bluetooth->GATT->Inertial Measurement Unit GATT Service. ###
 
 
 # Adding a Custom BLE GATT Service and Characteristic #
@@ -220,7 +226,10 @@ sensor with i2c
 driver levels
 Your own driver.
 
+Note: Bootloader.
 # Reference #
 ## peripheral examples ##
 ## platform application ##
 ## platform hardware driver ##
+
+
