@@ -11,45 +11,36 @@
   </tr>
 </table>
 
-# Adding Bluetooth and Platform Components in Simplicity Studio v5 #
+# Quickly Add an Accelerometer with SPI #
 
 Our energy-friendly EFM32 and EFR32 microcontrollers (MCUs) are ideal for ultra-low power applications. Based on ARM® Cortex® -M0+, Cortex-M3, and Cortex-M4 cores, our 32-bit MCUs extend battery life for those "hard-to-reach", power-sensitive consumer and industrial applications. Engineered for low power and intelligent design, our MCUs can scale power consumption while still performing real-time embedded tasks.
 
 ## Overview ##
+
+### Topic Covered ###
+- imu (Inertia Motion Sensor) sensor
+- Software component
+- Pintool
+- Simplicity Studio v5
+
+## Component dependency ##
 
 - peripheral_examples
   - Examples that demonstrate the peripherals of Silicon Labs Series 0, Series 1, and Series 2 devices.
 - platform_applications
   - Platform examples made for EFM and EFR devices.
 
-## Low-Energy Peripherals ##
+## Low level driver ##
 
 - EFM32ZG
 - EFM32HG
-- EFM32TG
-- EFM32G
-- EFM32LG
-- EFM32GG
-- EFM32WG
+- 
 
-## Supported Series 1 Devices ##
+## Code generation ##
 
 - EFM32PG1
 - EFR32MG1
-- EFR32BG1
-- EFR32FG1
-- EFM32PG12
-- EFR32MG12
-- EFR32BG12
-- EFR32FG12
-- EFR32MG13
-- EFR32BG13
-- EFR32FG13
-- EFR32MG14
-- EFR32BG14
-- EFR32FG14
-- EFM32GG11
-- EFM32TG11
+- 
 
 ## Peripheral Reflex System ##
 
@@ -70,7 +61,13 @@ Our energy-friendly EFM32 and EFR32 microcontrollers (MCUs) are ideal for ultra-
 - aa
 - mm
 ## sl_icm20648_config.h ##
---
+--bbbb
+
+# Porting consideration #
+## other driver ##
+sensor with i2c
+driver levels
+Your own driver.
 
 # Reference #
 ## peripheral examples ##
