@@ -67,7 +67,10 @@ Our energy-friendly EFM32 and EFR32 microcontrollers (MCUs) are ideal for ultra-
 
 # Source #
 ## sl_icm20648.c ##
+- aa
+- mm
 ## sl_icm20648_config.h ##
+--
 
 # Reference #
 ## peripheral examples ##
