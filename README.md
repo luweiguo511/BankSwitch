@@ -66,11 +66,69 @@ Download and install Simplicity Studio 5 if it is not already installed.
 
 # Lab #
 ## Creating the Project ##
-1. If the BG22 WSTK has not been plugged in using the USB cable, do so now. The kit and debug information should be displayed in the Debug Adapters window.
-2. In the Debug Adapters window, click on the device.
-3. Information about the target hardware and software will appear. If this does not appear, click on the Launcher button in the top right corner.
-4. Select the Preferred SDK to the latest version. For this lab, the latest version of Gecko SDK (v3.1.0) is used.
+1. If the BG22 TB has not been plugged in to PC using the USB cable (A-Micro), do so now. The kit and debug (board and target) information should be displayed in the Launcher->Debug Adapters window. Picture here!!!
+2. In the Debug Adapters window, click on the device (board).
+3. Information about the target hardware and software will appear in overview. If this does not appear, click on the Launcher button in the top right corner.
+4. Select the Preferred SDK to the latest version. For this lab, the latest version of Gecko SDK (v3.1.1) is used.
 5. Click on Create New Project in the upper right hand corner. A "New Project Wizard" window should appear.
+6. For this lab, the Bluetooth - SoC Empty project will be used as the starter project. Scroll and select Bluetooth - SoC Empty. 
+Note: to filter the projects, click on Bluetooth for the Technology Type. and empty for keywords.
+7. Click Next to move on.
+8. Rename the project. For this lab, name the project soc_spi_acc.
+9. Select Copy contents to copy the project files into your project. This makes version control easier to manage and future updates to the Simplicity Studio libraries will not impact the copied files in this project.
+10. check use default location (workspace)
+11. Click Finish to generate the project.
+12. the IDE perspective launchered automatically.
+13. you could see gatt_configuration.btconf, soc_spi_acc.slcp and readme.
+14. 
+
+summary:
+file included.
+Check Installed Components, you will see:
+Adanced Configurator
+Bluethooth -> OTA -> AppLoader,
+Stack, a lot.
+Platform, 
+services->NVM3
+services->Device Initialization->Device Init, Clocks/DPLL/DC-DC, etc. 
+services->Sleep Timer
+bbb
+## Installing the imu sensor components ##
+14. Open (click) the soc_spi_acc.sclp file. The file will show information about the target hardware and software (in overview->project details).
+15. Select the Software Components tab at the top.
+16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
+17. The list of EMLIB source files is available under "Peripherals". Install the following components using the Install button as shown in the image. The process is repeated for all 4 components.
+- IADC
+- LDMA
+- LETIMER
+- PRS
+
+
+# Adding a Custom BLE GATT Service and Characteristic #
+The average data that the IADC sampled can be retrieved wirelessly through BLE. To make the data visible, a custom GATT service and characteristic are used.
+
+Open the GATT configurator, which is located in _./config/btconf/gatt_configuration.btconf_. The GATT configurator GUI has been updated and is very different compared to SSv4.
+For this lab, the Device name will be modified to "LE Voltage Monitor" located under the Generic Access characteristics. The Value length will have to be updated to 18.
+Click on the left-most icon in the top left corner of the GATT configurator and select New Service.
+Click on the new custom service and rename the service to "Voltage Monitor".
+Add an ID to the custom service to give a meaningful ID reference to the service. For this lab, "voltage_monitor" is used for the ID.
+
+Click on the left-most icon in the top left corner of the GATT configurator and select New Characteristic.
+Click on the new custom characteristic. For this lab, rename the characteristic to be "Average Voltage Data".
+Add an ID to the custom characteristic. For this lab, "avg_voltage_data" is used for the ID. This ID field will create a meaningful name for the GATT characteristic variable to use in code development. This variable can be found in gatt_db.h and the variable will be prefixed with gattdb.
+Select USER for the Value settings. This will require the user to allocate their own resources for the GATT characteristic. For more information, see KBA.
+Select Notify under Properties. The EFR32 device will notify connected devices of any GATT characteristic value changes.
+
+# Adding the Project Source Files #
+Copy le_voltage_monitor.c, le_voltage_monitor.h, and app.c source files to the top level of the project. The source files and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
+# Build and Flash the Project #
+Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE.
+Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. Note: if a Device Selection window appears, select the correct device.
+Click Program to flash the device.
+
+# Usage #
+Connecting with EFR Connect App
+
 
 ## Documentation ##
 
