@@ -47,20 +47,20 @@ Our energy-friendly EFM32 and EFR32 microcontrollers (MCUs) are ideal for ultra-
 - EFR32MG21
 - EFR32BG21
 
-## Getting Started ##
+# Getting Started #
 Review the following material before starting the Bluetooth 5 labs. Ensure that you have the correct hardware and software to successfully complete the labs.
 
-# Hardware Requirements #
+## Hardware Requirements ##
 Silicon Labs Thunderboard BG22 Kit: SLTB010A
 EFR32BG22 Soc
-# Software Requirements #
+## Software Requirements ##
 Simplicity Studio v5
 Gecko SDK v3.0 with the Bluetooth stack installed
 EFRConnect Mobile App
-# Install Tools #
+## Install Tools ##
 Download and install Simplicity Studio 5 if it is not already installed.
 
-# Connect your Hardware #
+## Connect your Hardware ##
 
 
 
