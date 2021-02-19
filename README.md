@@ -81,10 +81,47 @@ Download and install Simplicity Studio 5 if it is not already installed.
 
 # Source #
 ## sl_icm20648.c ##
+C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
 - aa
 - mm
 ## sl_icm20648_config.h ##
---bbbb
+-- bbbb
+
+
+
+## sl_imu_fuse.c ##
+C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
+ ******************************************************************************/
+void sl_imu_update(void)
+{
+  sl_imu_fuse_update(&fuseObj);
+}
+
+## sl_imu.c ##
+C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
+void sl_imu_update(void)
+{
+  sl_imu_fuse_update(&fuseObj);
+}
+
+
+## sl_sensor_imu.c ##
+C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
+sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
+
+## app.c ##
+static void sensor_init(void)
+{
+
+#if defined(SL_CATALOG_GATT_SERVICE_IMU_PRESENT) && defined(SL_CATALOG_SENSOR_IMU_PRESENT)
+sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
+{
+  return sl_sensor_imu_get(ovec, avec);
+}
+
+
+
+## gatt_db.c ##
 
 # Porting consideration #
 ## other driver ##
