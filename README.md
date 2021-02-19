@@ -119,6 +119,39 @@ sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
   return sl_sensor_imu_get(ovec, avec);
 }
 
+# BLE notification #
+## sl_event_handler.c ##
+C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
+void sl_internal_app_process_action(void)
+{
+  sl_gatt_service_aio_step();
+  sl_gatt_service_imu_step();
+  sl_sensor_sound_step();
+}
+## sl_gatt_service_imu.c ##
+C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\gatt_service_imu
+
+void sl_gatt_service_imu_step(void)
+{
+  if (imu_state) {
+    if (SL_STATUS_OK == sl_gatt_service_imu_get(imu_ovec, imu_avec)) {
+      if (imu_acceleration_notification) {
+        imu_acceleration_notify();
+      }
+      if (imu_orientation_notification) {
+        imu_orientation_notify();
+      }
+    }
+  }
+}
+
+## sl_bt_api.h ##
+C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\protocol\bluetooth\inc
+ ******************************************************************************/
+sl_status_t sl_bt_gatt_server_send_notification(uint8_t connection,
+                                                uint16_t characteristic,
+                                                size_t value_len,
+                                                const uint8_t* value);
 
 
 ## gatt_db.c ##
