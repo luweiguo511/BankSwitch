@@ -11,18 +11,18 @@
   </tr>
 </table>
 
-# Silicon Labs Platform #
+# Adding Bluetooth and Platform Components in Simplicity Studio v5 #
 
 Our energy-friendly EFM32 and EFR32 microcontrollers (MCUs) are ideal for ultra-low power applications. Based on ARM® Cortex® -M0+, Cortex-M3, and Cortex-M4 cores, our 32-bit MCUs extend battery life for those "hard-to-reach", power-sensitive consumer and industrial applications. Engineered for low power and intelligent design, our MCUs can scale power consumption while still performing real-time embedded tasks.
 
-## Submodules ##
+## Overview ##
 
 - peripheral_examples
   - Examples that demonstrate the peripherals of Silicon Labs Series 0, Series 1, and Series 2 devices.
 - platform_applications
   - Platform examples made for EFM and EFR devices.
 
-## Supported Series 0 Devices ##
+## Low-Energy Peripherals ##
 
 - EFM32ZG
 - EFM32HG
@@ -51,9 +51,11 @@ Our energy-friendly EFM32 and EFR32 microcontrollers (MCUs) are ideal for ultra-
 - EFM32GG11
 - EFM32TG11
 
-## Supported Series 2 Devices ##
+## Peripheral Reflex System ##
 
 - EFR32MG21
 - EFR32BG21
 
+# Lab #
+## Creating the Project ##
 ## Documentation ##
