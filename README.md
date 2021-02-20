@@ -13,7 +13,7 @@
 
 # Quickly Add an Accelerometer with SPI #
 ## Overview ##
-For IOT (Internet of Things) solution, it often uses accelerometer sensor like IMU (Inertial measurement Unit). The EFR32BG22 Thunderboard (kit SLTB010A) has an onboard ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
+For IOT (Internet of Things) solution, it often uses accelerometer sensor like IMU (Inertial Measurement Unit). The EFR32BG22 Thunderboard (kit SLTB010A) has an onboard 6-axis ICM20648 sensor from vendor TDK InvenSense. 
 
 https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
 
@@ -102,16 +102,17 @@ In fact the SOC Empty project will install some software compnents. You could ch
 16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
 17. Install the following components using the Install button as shown in the image. The process is repeated for all components needed to add.
 - IO stream (dependent).
-- Platfrom-Board Driver->ICM20648 -> Motion Sensor
-- Bluetooth->GATT->Inertial Measurement Unit GATT Service.
-- Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
-- Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
+- Platfrom-Board Driver -> ICM20648 -> Motion Sensor
+- Bluetooth -> GATT -> Inertial Measurement Unit GATT Service.
+- Bluetooth -> Sensor -> Inertial Measurement Unit GATT Service.
+- Bluetooth -> Sensor -> Inertial Measurement Unit GATT Service.
+
 #### Recap of this step (explaination): ####
-##### Platfrom-Board Driver->ICM20648 -> Motion Sensor #####
+##### Platfrom-Board Driver -> ICM20648 -> Motion Sensor #####
 for the motion sensor component, you will see the file was added.
 the file was generated automatically.
 You can configure the pin now with the configure button.
-##### Bluetooth->GATT->Inertial Measurement Unit GATT Service. #####
+##### Bluetooth -> GATT -> Inertial Measurement Unit GATT Service. #####
 
 
 ### Adding a Custom BLE GATT Service and Characteristic ###
@@ -149,7 +150,7 @@ Click Program to flash the device.
 ### Connecting with EFR Connect App ###
 With the EFR Connect App, connect to the device and view the sensor data that is sent from the EFR32BG22 device (via notification).
 Click the notify button, you should see the sensor data get updated regularly.
-You could move the oritention of the TB to see this change.
+You could move the oritention of the Thunderboard to see this change.
 
 ### Recap ###
 
