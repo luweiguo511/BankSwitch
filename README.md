@@ -88,8 +88,8 @@ Note: to filter the projects, click on Bluetooth for the "Technology Type" and e
 13. You could see gatt_configuration.btconf, soc_spi_acc.slcp and readme showed up.
 
 #### Recap of this step: ####
-In fact, the SOC Empty project will install some software components. You could check the "Installed Components" under "Software Components", you will see component like below were installed:
-- Adanced Configurator -> Bluetooth GATT Configurator
+In fact, the SOC Empty project will install some software components. You could check what has installed via checking the "Installed Components" under "Software Components", you will see component like below were installed:
+- Advanced Configurator -> Bluetooth GATT Configurator
 - Bluethooth -> OTA -> AppLoader,
 - Platform -> services->Sleep Timer
 - etc.
@@ -102,7 +102,7 @@ In fact, the SOC Empty project will install some software components. You could 
 16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
 17. Install the following components using the Install button as shown in the image. The process is repeated for all components needed to add.
 - IO stream (dependent).
-- Platfrom-Board Driver -> ICM20648 -> Motion Sensor
+- Platform -> Board Driver -> ICM20648 -> Motion Sensor
 - Bluetooth -> GATT -> Inertial Measurement Unit GATT Service.
 - Bluetooth -> Sensor -> Inertial Measurement Unit GATT Service.
 - Bluetooth -> Sensor -> Inertial Measurement Unit GATT Service.
