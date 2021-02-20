@@ -107,13 +107,12 @@ Note: Target and SDK Selection, the Board should be thunderboard EFR32BG22.
 - Bluetooth -> GATT -> Inertial Measurement Unit GATT Service.
 - Bluetooth -> Sensor -> Inertial Measurement Unit Sensor.
 
-#### Recap of this step (explaination): ####
+#### Recap of this step (explanation): ####
 ##### Platfrom-Board Driver -> ICM20648 -> Motion Sensor #####
-for the motion sensor component, you will see the file was added.
-the file was generated automatically.
-You can configure the pin now with the configure button.
-##### Bluetooth -> GATT -> Inertial Measurement Unit GATT Service. #####
+After you add/install the motion sensor component, you will see somes file was added.
 
+##### Bluetooth -> GATT -> Inertial Measurement Unit GATT Service. #####
+After you add/install the motion sensor component, you will see somes others file was added.
 
 ### Adding a Custom BLE GATT Service and Characteristic ###
 The average data that the IADC sampled can be retrieved wirelessly through BLE. To make the data visible, a custom GATT service and characteristic are used.
@@ -138,7 +137,7 @@ void sl_internal_app_process_action(void)
 ### Adding the Project Source Files ###
 Copy app.c source file to the top level of the project. The source files (autommatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
 
-#### Recap of this step (explaination): ####
+#### Recap of this step (explanation): ####
 
 ### Build and Flash the Project ###
 Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspectibe.
