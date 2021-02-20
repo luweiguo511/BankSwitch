@@ -128,21 +128,27 @@ Add an ID to the custom characteristic. For this lab, "avg_voltage_data" is used
 Select USER for the Value settings. This will require the user to allocate their own resources for the GATT characteristic. For more information, see KBA.
 Select Notify under Properties. The EFR32 device will notify connected devices of any GATT characteristic value changes.
 
+void sl_internal_app_process_action(void)
+{
+  sl_gatt_service_imu_step();
+}
+
 ### Adding the Project Source Files ###
-Copy le_voltage_monitor.c, le_voltage_monitor.h, and app.c source files to the top level of the project. The source files and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
+Copy app.c source file to the top level of the project. The source files (autommatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
 
 #### Recap of this step (explaination): ####
 
 ### Build and Flash the Project ###
-Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE.
-Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. Note: if a Device Selection window appears, select the correct device.
+Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspectibe.
+Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. 
+Note: if a Device Selection window appears, select the correct device.
 Click Program to flash the device.
 
 ## Usage ##
 ### Connecting with EFR Connect App ###
-With the EFR Connect App, connect to the device and view the average voltage data that is sent from the EFR32BG22 device.
+With the EFR Connect App, connect to the device and view the sensor data that is sent from the EFR32BG22 device (via notification).
 Click the notify button, you should see the sensor data get updated regularly.
-You could move the position of the TB to see this change.
+You could move the oritention of the TB to see this change.
 
 ### Recap ###
 
