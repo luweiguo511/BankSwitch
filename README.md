@@ -116,7 +116,7 @@ You can configure the pin now with the configure button.
 #### Bluetooth->GATT->Inertial Measurement Unit GATT Service. ####
 
 
-## Adding a Custom BLE GATT Service and Characteristic ##
+### Adding a Custom BLE GATT Service and Characteristic ###
 The average data that the IADC sampled can be retrieved wirelessly through BLE. To make the data visible, a custom GATT service and characteristic are used.
 
 Open the GATT configurator, which is located in _./config/btconf/gatt_configuration.btconf_. The GATT configurator GUI has been updated and is very different compared to SSv4.
@@ -131,12 +131,12 @@ Add an ID to the custom characteristic. For this lab, "avg_voltage_data" is used
 Select USER for the Value settings. This will require the user to allocate their own resources for the GATT characteristic. For more information, see KBA.
 Select Notify under Properties. The EFR32 device will notify connected devices of any GATT characteristic value changes.
 
-## Adding the Project Source Files ##
+### Adding the Project Source Files ###
 Copy le_voltage_monitor.c, le_voltage_monitor.h, and app.c source files to the top level of the project. The source files and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
 
-### Recap of this step (explaination): ###
+#### Recap of this step (explaination): ####
 
-## Build and Flash the Project ##
+### Build and Flash the Project ###
 Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. Note: if a Device Selection window appears, select the correct device.
 Click Program to flash the device.
