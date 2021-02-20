@@ -13,13 +13,13 @@
 
 # Quickly Add an Accelerometer with SPI #
 ## Overview ##
-For IOT (Internet of Things) solution, it offen uses accelerometer sensor like IMU (Inertial measurement Unit). The EFR32BG22 thunderboard (kit SLTB010A) has an ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
+For IOT (Internet of Things) solution, it often uses accelerometer sensor like IMU (Inertial measurement Unit). The EFR32BG22 Thunderboard (kit SLTB010A) has an ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
 
 https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
 
 https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 
-This lab show how to add an Accelerometer sensor (like IMU) quickly. 
+This lab shows how to add an Accelerometer sensor (like IMU) quickly. 
 
 #### Topic Covered ####
 - IMU/Accelerometer (Inertial Measurement Unit) sensor
@@ -27,10 +27,11 @@ This lab show how to add an Accelerometer sensor (like IMU) quickly.
 - EFR connect app. 
 
 ## Getting Started ##
-Review the following material before starting this labs. Ensure that you have the correct hardware and software to successfully complete the labs.
+Review the following material before starting this lab. Ensure that you have the correct hardware and software prepared to successfully complete the labs.
 
 ### Hardware Requirements ###
-Silicon Labs Thunderboard BG22 Kit: SLTB010A
+Silicon Labs BG22 Thunderboard Kit: SLTB010A
+
 Which included:
 -	EFR32BG22C224F512IM40 Soc
 -	6-axis IMU (Inertial Measurement Unit): TDK InvenSense ICM-20648 
@@ -51,13 +52,14 @@ Attach the development kit assembly to the PC with Simplicity Studio installed b
 picture here.
 
 ## Hardware introduction ##
-Refer to this page for detailed information (Schematic for BG22 thunderboard):
+Refer to this page for detailed information (Schematic for BG22 Thunderboard in pdf format):
 
 https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf
 
 
 ### ###
 picture uploaded here:
+
 Pins used to connect between the EFR32BG22 and IMU:
 - SPI_MOSI,
 - SPI_MISO
@@ -69,51 +71,46 @@ Pins used to connect between the EFR32BG22 and IMU:
 
 ## Lab ##
 ### Creating the Project (based on SOC empty) ###
-1. If the BG22 TB has not been plugged in to PC using the USB cable (A-Micro), do so now. The kit and debug (board and target) information should be displayed in the Launcher->Debug Adapters window. Picture here!!!
-2. In the Debug Adapters window, click on the device (board).
-3. Information about the target hardware and software will appear in overview. If this does not appear, click on the Launcher button in the top right corner.
-4. Select the Preferred SDK to the latest version. For this lab, the latest version of Gecko SDK (v3.1.1) is used.
-5. Click on Create New Project in the upper right hand corner. A "New Project Wizard" window should appear.
-6. For this lab, the Bluetooth - SoC Empty project will be used as the starter project. Scroll and select Bluetooth - SoC Empty. 
-Note: to filter the projects, click on Bluetooth for the Technology Type. and empty for keywords.
+1. If the BG22 Thunderboard has not been plugged into PC using the USB cable (micro type), do so now. The kit and debug information (board and target) should be displayed in the Launcher->Debug Adapters window. Picture here!!!
+2. In the "Debug Adapters window", click on the device (board).
+3. Information about the target hardware and software will appear in Launcher -> Overview tab (together with the Adapter FW and Secure FW version). If this does not appear, click on the Launcher button in the top right corner.
+4. Select the "Preferred SDK" to the latest version. For this lab, the latest version of "Gecko SDK Suite" v3.1.1 is used.
+5. Click on "Create New Project" in the upper right hand corner. A "New Project Wizard" window should appear.
+6. For this lab, the Bluetooth -> SoC Empty project will be used as the starter project. Scroll and select Bluetooth -> SoC Empty. 
+Note: to filter the projects, click on Bluetooth for the "Technology Type" and empty for "keywords".
 7. Click Next to move on.
-8. Rename the project. For this lab, name the project soc_spi_acc.
-9. Select Copy contents to copy the project files into your project. This makes version control easier to manage and future updates to the Simplicity Studio libraries will not impact the copied files in this project.
-10. check use default location (workspace)
+8. Rename the project under "Project name". For this lab, name the project soc_spi_acc.
+9. Select (check) "Copy contents" under "With Project files" to copy the project files into your project. This makes version control easier to manage and future updates to the Simplicity Studio libraries will not impact the copied files in this project.
+10. Check "Use default location" (workspace).
 11. Click Finish to generate the project.
-12. the IDE perspective launchered automatically.
-13. you could see gatt_configuration.btconf, soc_spi_acc.slcp and readme.
-14. 
+12. The IDE perspective launchered automatically.
+13. You could see gatt_configuration.btconf, soc_spi_acc.slcp and readme showed up.
 
 #### Recap of this step: ####
-file included.
-Check Installed Components, you will see:
-Adanced Configurator
-Bluethooth -> OTA -> AppLoader,
-Stack, a lot.
-Platform, 
-services->NVM3
-services->Device Initialization->Device Init, Clocks/DPLL/DC-DC, etc. 
-services->Sleep Timer
-bbb
+In fact the SOC Empty project will install some software compnents. You could check the "Installed Components" under "Software Components", you will see component like below were installed:
+- Adanced Configurator -> Bluetooth GATT Configurator
+- Bluethooth -> OTA -> AppLoader,
+- Platform -> services->Sleep Timer
+- etc.
+
 
 
 ### Installing the imu sensor components ###
-14. Open (click) the soc_spi_acc.sclp file. The file will show information about the target hardware and software (in overview->project details).
+14. Open (click) the soc_spi_acc.sclp file. The Overview will show information about the target hardware and software.
 15. Select the Software Components tab at the top.
 16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
-17. The list of EMLIB source files is available under "Peripherals". Install the following components using the Install button as shown in the image. The process is repeated for all 4 components.
-- IO stream (dependent)
+17. Install the following components using the Install button as shown in the image. The process is repeated for all components needed to add.
+- IO stream (dependent).
 - Platfrom-Board Driver->ICM20648 -> Motion Sensor
 - Bluetooth->GATT->Inertial Measurement Unit GATT Service.
 - Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
 - Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
 #### Recap of this step (explaination): ####
-#### Platfrom-Board Driver->ICM20648 -> Motion Sensor ####
+##### Platfrom-Board Driver->ICM20648 -> Motion Sensor #####
 for the motion sensor component, you will see the file was added.
 the file was generated automatically.
 You can configure the pin now with the configure button.
-#### Bluetooth->GATT->Inertial Measurement Unit GATT Service. ####
+##### Bluetooth->GATT->Inertial Measurement Unit GATT Service. #####
 
 
 ### Adding a Custom BLE GATT Service and Characteristic ###
