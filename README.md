@@ -150,15 +150,17 @@ You could move the position of the TB to see this change.
 ### Recap ###
 
 ## Code Explanation ##
-The following sections explain critical lines of code pertinent to this lab. The code can be found here:
+The following sections explain critical lines of code pertinent to this lab. The code can be found in different files (driver).
 ### Accelerometer (icm20648) Driver ###
 #### sl_icm20648.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
-- aa
-- mm
-#### sl_icm20648_config.h ####
--- bbbb
+This is the driver file for ICM20648 prepared by Silabs. If you use sensor from other vendor, you may need to consider to implement the similar driver for it.
+Please consider to contact with the vendor of the sensor you use to get help on how to implement the driver.
 
+#### sl_icm20648_config.h ####
+This is a header file generated automatically bu the Simplicity Studio pintool/software component. You may need to change the pin map based on your hardware.
+Use the software components->Platform->Board drivers->ICM20648->Configure to change this.
+picture here:
 
 
 #### sl_imu_fuse.c ####
@@ -256,7 +258,7 @@ sensor with i2c
 driver levels
 Your own driver.
 
-Note: Bootloader. The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first.
+Note: The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first.
 
 ## Reference ##
 ### Peripheral examples ###
