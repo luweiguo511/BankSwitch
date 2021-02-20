@@ -27,53 +27,36 @@ This lab show how to add an Accelerometer sensor (like IMU) quickly.
 - Pintool
 - EFR connect app. 
 
-## Component dependency ##
-
-- peripheral_examples
-  - Examples that demonstrate the peripherals of Silicon Labs Series 0, Series 1, and Series 2 devices.
-- platform_applications
-  - Platform examples made for EFM and EFR devices.
-
-## Low level driver ##
-
-- EFM32ZG
-- EFM32HG
-- 
-
-## Code generation ##
-
-- EFM32PG1
-- EFR32MG1
-- 
-
-## Peripheral Reflex System ##
-
-- EFR32MG21
-- EFR32BG21
-
-# Getting Started #
+## Getting Started ##
 Review the following material before starting this labs. Ensure that you have the correct hardware and software to successfully complete the labs.
 
-## Hardware Requirements ##
+### Hardware Requirements ###
 Silicon Labs Thunderboard BG22 Kit: SLTB010A
+Which included:
 -	EFR32BG22C224F512IM40 Soc
 -	6-axis IMU (Inertial Measurement Unit): TDK InvenSense ICM-20648 
-## Software Requirements ##
+### Software Requirements ###
 - Simplicity Studio v5
 - Gecko SDK v3.1 (GSTK) or obove with the Bluetooth stack installed
 - EFRConnect Mobile App
--	If you have problem to access Google Play in china mainland, try link here
--	If you have problem to access Apple store or don’t have an account, try link here.
+-	•	If you have problem to access Google Play in china mainland, try link here
+-	•	If you have problem to access Apple store or don’t have an account, try link here.
 
-## Install Tools ##
+### Install Tools ###
 Download and install Simplicity Studio 5 if it is not already installed.
+https://www.silabs.com/products/development-tools/software/simplicity-studio
 
-## Connect your Hardware ##
+### Connect your Hardware ###
+Attach the development kit assembly to the PC with Simplicity Studio installed by using a micro USB cable (not a charging cable) and connecting between the PC host USB port to the J-link USB port on the kit.
+picture here.
 
+## Hardware introduction ##
 
+### ###
+picture uploaded here:
 
-# Lab #
-## Creating the Project ##
+## Lab ##
+### Creating the Project (based on SOC empty) ###
 1. If the BG22 TB has not been plugged in to PC using the USB cable (A-Micro), do so now. The kit and debug (board and target) information should be displayed in the Launcher->Debug Adapters window. Picture here!!!
 2. In the Debug Adapters window, click on the device (board).
 3. Information about the target hardware and software will appear in overview. If this does not appear, click on the Launcher button in the top right corner.
@@ -101,7 +84,7 @@ services->NVM3
 services->Device Initialization->Device Init, Clocks/DPLL/DC-DC, etc. 
 services->Sleep Timer
 bbb
-## Installing the imu sensor components ##
+### Installing the imu sensor components ###
 14. Open (click) the soc_spi_acc.sclp file. The file will show information about the target hardware and software (in overview->project details).
 15. Select the Software Components tab at the top.
 16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
@@ -111,14 +94,14 @@ bbb
 - Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
 - Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
 explaination:
-### Platfrom-Board Driver->ICM20648 -> Motion Sensor ###
+#### Platfrom-Board Driver->ICM20648 -> Motion Sensor ####
 for the motion sensor component, you will see the file was added.
 the file was generated automatically.
 You can configure the pin now with the configure button.
-### Bluetooth->GATT->Inertial Measurement Unit GATT Service. ###
+#### Bluetooth->GATT->Inertial Measurement Unit GATT Service. ####
 
 
-# Adding a Custom BLE GATT Service and Characteristic #
+## Adding a Custom BLE GATT Service and Characteristic ##
 The average data that the IADC sampled can be retrieved wirelessly through BLE. To make the data visible, a custom GATT service and characteristic are used.
 
 Open the GATT configurator, which is located in _./config/btconf/gatt_configuration.btconf_. The GATT configurator GUI has been updated and is very different compared to SSv4.
@@ -133,35 +116,35 @@ Add an ID to the custom characteristic. For this lab, "avg_voltage_data" is used
 Select USER for the Value settings. This will require the user to allocate their own resources for the GATT characteristic. For more information, see KBA.
 Select Notify under Properties. The EFR32 device will notify connected devices of any GATT characteristic value changes.
 
-# Adding the Project Source Files #
+## Adding the Project Source Files ##
 Copy le_voltage_monitor.c, le_voltage_monitor.h, and app.c source files to the top level of the project. The source files and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
-# Build and Flash the Project #
+## Build and Flash the Project ##
 Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. Note: if a Device Selection window appears, select the correct device.
 Click Program to flash the device.
 
-# Usage #
+## Usage ##
 Connecting with EFR Connect App
 
 
-## Documentation ##
+### Documentation ###
 
-# Code Explanation #
-## Creating the Project ##
-## Documentation ##
+## Code Explanation ##
+### Creating the Project ###
+### Documentation ###
 
 
-# Source #
-## sl_icm20648.c ##
+## Source ##
+### sl_icm20648.c ###
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
 - aa
 - mm
-## sl_icm20648_config.h ##
+### sl_icm20648_config.h ###
 -- bbbb
 
 
 
-## sl_imu_fuse.c ##
+### sl_imu_fuse.c ###
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
  ******************************************************************************/
 void sl_imu_update(void)
@@ -169,7 +152,7 @@ void sl_imu_update(void)
   sl_imu_fuse_update(&fuseObj);
 }
 
-## sl_imu.c ##
+### sl_imu.c ###
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
 void sl_imu_update(void)
 {
@@ -177,11 +160,11 @@ void sl_imu_update(void)
 }
 
 
-## sl_sensor_imu.c ##
+### sl_sensor_imu.c ###
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
 sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
 
-## app.c ##
+### app.c ###
 static void sensor_init(void)
 {
 
@@ -191,8 +174,8 @@ sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
   return sl_sensor_imu_get(ovec, avec);
 }
 
-# BLE notification #
-## sl_event_handler.c ##
+## BLE notification ##
+### sl_event_handler.c ###
 C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
 void sl_internal_app_process_action(void)
 {
@@ -200,7 +183,7 @@ void sl_internal_app_process_action(void)
   sl_gatt_service_imu_step();
   sl_sensor_sound_step();
 }
-## sl_gatt_service_imu.c ##
+### sl_gatt_service_imu.c ###
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\gatt_service_imu
 
 void sl_gatt_service_imu_step(void)
@@ -217,7 +200,7 @@ void sl_gatt_service_imu_step(void)
   }
 }
 aa
-## sl_bt_api.h ##
+### sl_bt_api.h ###
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\protocol\bluetooth\inc
  ******************************************************************************/
 sl_status_t sl_bt_gatt_server_send_notification(uint8_t connection,
@@ -226,18 +209,18 @@ sl_status_t sl_bt_gatt_server_send_notification(uint8_t connection,
                                                 const uint8_t* value);
 
 
-## gatt_db.c ##
+### gatt_db.c ###
 
-# Porting consideration #
-## other driver ##
+## Porting consideration ##
+### other driver ###
 sensor with i2c
 driver levels
 Your own driver.
 
 Note: Bootloader.
-# Reference #
-## peripheral examples ##
-## platform application ##
-## platform hardware driver ##
+## Reference ##
+### peripheral examples ###
+### platform application ###
+### platform hardware driver ###
 
 
