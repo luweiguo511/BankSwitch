@@ -251,6 +251,7 @@ BG22 Thunderboard also integrated other sensors:
 - Silabs Relative humidity & temperature sensor: Si7021
 - Silabs UV and ambient light sensor: Si1133
 - Silabs Hall effect sensor: Si7210
+
 sensor with i2c
 driver levels
 Your own driver.
