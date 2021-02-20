@@ -13,16 +13,16 @@
 
 # Quickly Add an Accelerometer with SPI #
 ## Overview ##
-For IOT (Internet of Things) solution, it offen use sensor like IMU (Inertial measurement Unit). The EFR32BG22 thunderboard (kit SLTB010A) populate a ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
+For IOT (Internet of Things) solution, it offen uses sensor like IMU (Inertial measurement Unit). The EFR32BG22 thunderboard (kit SLTB010A) has an ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
 
 https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
 
 https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 
-This lab show how to add an Accelerometer sensor (like IMU) quickly.
+This lab show how to add an Accelerometer sensor (like IMU) quickly. 
 
-### Topic Covered ###
-- IMU (Inertial Measurement Unit) sensor
+#### Topic Covered ####
+- IMU/Accelerometer (Inertial Measurement Unit) sensor
 - Software component
 - Pintool
 - EFR connect app. 
@@ -51,9 +51,22 @@ Attach the development kit assembly to the PC with Simplicity Studio installed b
 picture here.
 
 ## Hardware introduction ##
+refer to this page for detailed information:
+
+https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf
+
+picture here.
 
 ### ###
 picture uploaded here:
+Pins used to connect between the EFR32BG22 and IMU:
+- spi_MOSI,
+- SPI_MISO
+- SPI_SCLK
+- SPI_CS
+- IMU_ENABLE
+- IMU_INT
+
 
 ## Lab ##
 ### Creating the Project (based on SOC empty) ###
@@ -89,6 +102,7 @@ bbb
 15. Select the Software Components tab at the top.
 16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
 17. The list of EMLIB source files is available under "Peripherals". Install the following components using the Install button as shown in the image. The process is repeated for all 4 components.
+- IO stream (dependent)
 - Platfrom-Board Driver->ICM20648 -> Motion Sensor
 - Bluetooth->GATT->Inertial Measurement Unit GATT Service.
 - Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
@@ -132,11 +146,10 @@ You could move the position of the TB to see this change.
 ### Documentation ###
 
 ## Code Explanation ##
+The following sections explain critical lines of code pertinent to this lab. The code can be found here:
 ### Creating the Project ###
 ### Documentation ###
 
-
-## Source ##
 ### sl_icm20648.c ###
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
 - aa
