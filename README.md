@@ -98,7 +98,7 @@ In fact, the SOC Empty project will install some software components. You could 
 
 ### Installing the imu sensor components ###
 14. Open (click) the soc_spi_acc.sclp file. The Overview will show information about the target hardware and software.
-Note: Target and SDK Selection, the Board should be thunderboard EFR32BG22.
+Note: Target and SDK Selection, Ensure the Board should be thunderboard EFR32BG22.
 15. Select the Software Components tab at the top.
 16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
 17. Install the following components using the Install button as shown in the image. The process is repeated for all components needed to add.
@@ -126,7 +126,35 @@ C:\Users\user_acount\SimplicityStudio\v5_workshop\soc_spi_acc
 Where user_acount is the default workspace and SS installation path.
 You can also edit the app.c file manually if you prefer to this way.
 #### Recap of this step (explanation): ####
-
+static void sensor_init(void)
+{
+  sl_sensor_imu_init();
+  sl_sensor_imu_enable(true);
+}
+sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
+{
+  return sl_sensor_imu_get(ovec, avec);
+}
+Some change was made in the app.c file. 
+    // -------------------------------
+    // This event indicates that a new connection was opened.
+    case sl_bt_evt_connection_opened_id:
+      sensor_init();
+      break;
+    // -------------------------------
+    // This event indicates that a connection was closed.
+    case sl_bt_evt_connection_closed_id:
+      // Restart advertising after client has disconnected.
+      sc = sl_bt_advertiser_start(
+        advertising_set_handle,
+        advertiser_general_discoverable,
+        advertiser_connectable_scannable);
+      sl_app_assert(sc == SL_STATUS_OK,
+                    "[E: 0x%04x] Failed to start advertising\n",
+                    (int)sc);
+        sl_sensor_imu_deinit();      
+      break;      
+      
 ### Build and Flash the Project ###
 Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspectibe.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. 
