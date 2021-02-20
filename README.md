@@ -19,7 +19,7 @@ https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
 
 https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 
-This lab shows how to add an Accelerometer sensor (like IMU) quickly. 
+This lab shows how to add an accelerometer sensor (like IMU) quickly. 
 
 #### Topic Covered ####
 - Accelerometer (Inertial Measurement Unit) sensor
@@ -37,8 +37,8 @@ Which included:
 -	6-axis IMU (Inertial Measurement Unit): TDK InvenSense ICM-20648 with SPI interface
 ### Software Requirements ###
 - Simplicity Studio v5
-- Gecko SDK v3.1 (GSDK) or obove with the Bluetooth Stack (v3.1.1) installed
-- EFRConnect Mobile App
+- Gecko SDK v3.1 (GSDK) or above with the Bluetooth Stack (v3.1.1) installed
+- EFR Connect Mobile App
 -	•	If you have problem to access Google Play in china mainland, try link here
 -	•	If you have problem to access Apple store or don’t have an account, try link here.
 
@@ -48,10 +48,10 @@ Download and install Simplicity Studio v5 if it is not already installed. Be sur
 https://www.silabs.com/products/development-tools/software/simplicity-studio
 
 ### Connect your Hardware ###
-Attach the BG Thunderboard kit to the PC with Simplicity Studio installed by using a USB cable (not a charging cable) and connecting between the PC host USB port to the J-link USB port (micro) on the kit.
+Attach the BG Thunderboard kit to the PC with Simplicity Studio installed by using a USB cable (not a charging cable). Connecting between the PC host USB port to the J-link USB port (micro) on the kit.
 picture here.
 
-## Hardware introduction ##
+## Hardware Introduction ##
 Refer to this page for detailed hardware information (Schematic for BG22 Thunderboard in pdf format):
 
 https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf
@@ -88,7 +88,7 @@ Note: to filter the projects, click on Bluetooth for the "Technology Type" and e
 13. You could see gatt_configuration.btconf, soc_spi_acc.slcp and readme showed up.
 
 #### Recap of this step: ####
-In fact the SOC Empty project will install some software compnents. You could check the "Installed Components" under "Software Components", you will see component like below were installed:
+In fact, the SOC Empty project will install some software components. You could check the "Installed Components" under "Software Components", you will see component like below were installed:
 - Adanced Configurator -> Bluetooth GATT Configurator
 - Bluethooth -> OTA -> AppLoader,
 - Platform -> services->Sleep Timer
