@@ -108,20 +108,20 @@ Note: Target and SDK Selection, the Board should be thunderboard EFR32BG22.
 - Bluetooth -> Sensor -> Inertial Measurement Unit Sensor.
 
 #### Recap of this step (explanation): ####
-##### Platfrom-Board Driver -> ICM20648 -> Motion Sensor #####
+##### Motion Sensor #####
 After you add/install the motion sensor component, you will see somes files was added.
 
-##### Bluetooth -> GATT -> Inertial Measurement Unit GATT Service. #####
-After you add/install the motion sensor component, you will see somes other files was added.
+##### Inertial Measurement Unit GATT Service. #####
+After you add/install the Inertial Measurement Unit GATT Service, you will see somes other files was added.
 In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
 void sl_internal_app_process_action(void)
 {
   sl_gatt_service_imu_step();
 }
-If you open the config->btconf->gatt_configuration.btcon gatt configure file, you could see the Accleration and Orientation was added.
+If you open the config->btconf->gatt_configuration.btcon gatt configure file, you could see the Acceleration and Orientation was added.
 
 ### Adding the Project Source Files ###
-Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
+Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path.
 
 #### Recap of this step (explanation): ####
 
