@@ -182,22 +182,49 @@ C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluet
 sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
 
 ### app.c ###
+#### Application ####
+The SoC-Empty project generates a default app.c source file with a skeleton Bluetooth event handler. The app.c file provided for this lab adds code to handle the BLE connection and notifications.
+#### Connection Opened ####
+The imu sensor is initialized in app_init() in line 35 of app.c. The voltage monitor IADC does not start sampling until a connection has been made and the user has enabled GATT notifications to the Average Volage Data characteristic.
 static void sensor_init(void)
 {
+  sl_sensor_imu_init();
+  sl_sensor_imu_enable(true);
+}
+    // -------------------------------
+    // This event indicates that a new connection was opened.
+    case sl_bt_evt_connection_opened_id:
+      sensor_init();
+      break;
+      
 
+#### Notifications Enabled ####
 #if defined(SL_CATALOG_GATT_SERVICE_IMU_PRESENT) && defined(SL_CATALOG_SENSOR_IMU_PRESENT)
 sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
 {
   return sl_sensor_imu_get(ovec, avec);
 }
 
+#### Connection Closed ####
+    // -------------------------------
+    // This event indicates that a connection was closed.
+    case sl_bt_evt_connection_closed_id:
+      // Restart advertising after client has disconnected.
+      sc = sl_bt_advertiser_start(
+        advertising_set_handle,
+        advertiser_general_discoverable,
+        advertiser_connectable_scannable);
+      sl_app_assert(sc == SL_STATUS_OK,
+                    "[E: 0x%04x] Failed to start advertising\n",
+                    (int)sc);
+      break;
+
+
 ## BLE notification ##
 ### sl_event_handler.c ###
 C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
 void sl_internal_app_process_action(void)
 {
-  sl_gatt_service_aio_step();
-  sl_gatt_service_imu_step();
   sl_sensor_sound_step();
 }
 ### sl_gatt_service_imu.c ###
@@ -216,17 +243,7 @@ void sl_gatt_service_imu_step(void)
     }
   }
 }
-aa
-### sl_bt_api.h ###
-C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\protocol\bluetooth\inc
- ******************************************************************************/
-sl_status_t sl_bt_gatt_server_send_notification(uint8_t connection,
-                                                uint16_t characteristic,
-                                                size_t value_len,
-                                                const uint8_t* value);
 
-
-### gatt_db.c ###
 
 ## Porting consideration ##
 ### other driver ###
