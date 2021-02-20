@@ -14,6 +14,7 @@
 # Quickly Add an Accelerometer with SPI #
 ## Overview ##
 For IOT (Internet of Things) solution, it offen use sensor like IMU (Inertial measurement Unit). The EFR32BG22 thunderboard (kit SLTB010A) populate a ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
+
 https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
 https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 
