@@ -247,13 +247,18 @@ void sl_gatt_service_imu_step(void)
 
 ## Porting consideration ##
 ### other driver ###
+BG22 Thunderboard also integrated other sensors:
+- Silabs Relative humidity & temperature sensor: Si7021
+- Silabs UV and ambient light sensor: Si1133
+- Silabs Hall effect sensor: Si7210
 sensor with i2c
 driver levels
 Your own driver.
 
-Note: Bootloader.
+Note: Bootloader. The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first.
+
 ## Reference ##
-### peripheral examples ###
+### Peripheral examples ###
 
 https://github.com/SiliconLabs/peripheral_examples
 
@@ -264,7 +269,5 @@ https://docs.silabs.com/gecko-platform/latest/
 ### SS v5 user guide ###
 https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-overview/
 
-### platform application ###
-### platform hardware driver ###
 
 
