@@ -100,8 +100,8 @@ bbb
 17. The list of EMLIB source files is available under "Peripherals". Install the following components using the Install button as shown in the image. The process is repeated for all 4 components.
 - Platfrom-Board Driver->ICM20648 -> Motion Sensor
 - Bluetooth->GATT->Inertial Measurement Unit GATT Service.
-- LETIMER
-- PRS
+- Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
+- Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
 explaination:
 ### Platfrom-Board Driver->ICM20648 -> Motion Sensor ###
 for the motion sensor component, you will see the file was added.
