@@ -152,16 +152,16 @@ You could move the position of the TB to see this change.
 ## Code Explanation ##
 The following sections explain critical lines of code pertinent to this lab. The code can be found here:
 
-### sl_icm20648.c ###
+#### sl_icm20648.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
 - aa
 - mm
-### sl_icm20648_config.h ###
+#### sl_icm20648_config.h ####
 -- bbbb
 
 
 
-### sl_imu_fuse.c ###
+#### sl_imu_fuse.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
  ******************************************************************************/
 void sl_imu_update(void)
@@ -169,7 +169,7 @@ void sl_imu_update(void)
   sl_imu_fuse_update(&fuseObj);
 }
 
-### sl_imu.c ###
+#### sl_imu.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
 void sl_imu_update(void)
 {
@@ -177,7 +177,7 @@ void sl_imu_update(void)
 }
 
 
-### sl_sensor_imu.c ###
+#### sl_sensor_imu.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
 sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
 
@@ -220,14 +220,14 @@ sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
       break;
 
 
-## BLE notification ##
-### sl_event_handler.c ###
+### BLE notification ###
+#### sl_event_handler.c ####
 C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
 void sl_internal_app_process_action(void)
 {
   sl_sensor_sound_step();
 }
-### sl_gatt_service_imu.c ###
+#### sl_gatt_service_imu.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\gatt_service_imu
 
 void sl_gatt_service_imu_step(void)
