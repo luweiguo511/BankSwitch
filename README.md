@@ -13,7 +13,7 @@
 
 # Quickly Add an Accelerometer with SPI #
 ## Overview ##
-For IOT (Internet of Things) solution, it often uses accelerometer sensor like IMU (Inertial measurement Unit). The EFR32BG22 Thunderboard (kit SLTB010A) has an ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
+For IOT (Internet of Things) solution, it often uses accelerometer sensor like IMU (Inertial measurement Unit). The EFR32BG22 Thunderboard (kit SLTB010A) has an onboard ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
 
 https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
 
@@ -22,51 +22,52 @@ https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 This lab shows how to add an Accelerometer sensor (like IMU) quickly. 
 
 #### Topic Covered ####
-- IMU/Accelerometer (Inertial Measurement Unit) sensor
+- Accelerometer (Inertial Measurement Unit) sensor
 - Software component
 - EFR connect app. 
 
 ## Getting Started ##
-Review the following material before starting this lab. Ensure that you have the correct hardware and software prepared to successfully complete the labs.
+Review the following material before starting this lab. Ensure that you have the correct hardware and software prepared to successfully complete the lab.
 
 ### Hardware Requirements ###
 Silicon Labs BG22 Thunderboard Kit: SLTB010A
 
 Which included:
 -	EFR32BG22C224F512IM40 Soc
--	6-axis IMU (Inertial Measurement Unit): TDK InvenSense ICM-20648 
+-	6-axis IMU (Inertial Measurement Unit): TDK InvenSense ICM-20648 with SPI interface
 ### Software Requirements ###
 - Simplicity Studio v5
-- Gecko SDK v3.1 (GSTK) or obove with the Bluetooth stack installed
+- Gecko SDK v3.1 (GSDK) or obove with the Bluetooth Stack (v3.1.1) installed
 - EFRConnect Mobile App
 -	•	If you have problem to access Google Play in china mainland, try link here
 -	•	If you have problem to access Apple store or don’t have an account, try link here.
 
 ### Install Tools ###
-Download and install Simplicity Studio 5 if it is not already installed.
+Download and install Simplicity Studio v5 if it is not already installed. Be sure to update to have GSDK 3.1.x and Bluetooth Stack installed.
 
 https://www.silabs.com/products/development-tools/software/simplicity-studio
 
 ### Connect your Hardware ###
-Attach the development kit assembly to the PC with Simplicity Studio installed by using a micro USB cable (not a charging cable) and connecting between the PC host USB port to the J-link USB port on the kit.
+Attach the BG Thunderboard kit to the PC with Simplicity Studio installed by using a USB cable (not a charging cable) and connecting between the PC host USB port to the J-link USB port (micro) on the kit.
 picture here.
 
 ## Hardware introduction ##
-Refer to this page for detailed information (Schematic for BG22 Thunderboard in pdf format):
+Refer to this page for detailed hardware information (Schematic for BG22 Thunderboard in pdf format):
 
 https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf
 
 
-### ###
+### Connection between IMU sensor and EFR32BG22 ###
 picture uploaded here:
 
 Pins used to connect between the EFR32BG22 and IMU:
-- SPI_MOSI,
-- SPI_MISO
-- SPI_SCLK
-- SPI_CS
-- IMU_ENABLE
-- IMU_INT
+- SPI interface:
+- 	•	SPI_MOSI (PC00)
+- 	•	SPI_MISO (PC01)
+- 	•	SPI_SCLK (PC02)
+- 	•	SPI_CS (PB02)
+- IMU_ENABLE (PB04)
+- IMU_INT (PB03)
 
 
 ## Lab ##
@@ -289,9 +290,9 @@ void sl_gatt_service_imu_step(void)
 ## Porting consideration ##
 ### other driver ###
 BG22 Thunderboard also integrated other sensors:
-- Silabs Relative humidity & temperature sensor: Si7021
-- Silabs UV and ambient light sensor: Si1133
-- Silabs Hall effect sensor: Si7210
+- Silabs Relative humidity & temperature sensor: I2C Si7021
+- Silabs UV and ambient light sensor: I2C Si1133
+- Silabs Hall effect sensor: I2C Si7210
 
 sensor with i2c
 driver levels
