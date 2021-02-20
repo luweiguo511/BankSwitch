@@ -109,33 +109,19 @@ Note: Target and SDK Selection, the Board should be thunderboard EFR32BG22.
 
 #### Recap of this step (explanation): ####
 ##### Platfrom-Board Driver -> ICM20648 -> Motion Sensor #####
-After you add/install the motion sensor component, you will see somes file was added.
+After you add/install the motion sensor component, you will see somes files was added.
 
 ##### Bluetooth -> GATT -> Inertial Measurement Unit GATT Service. #####
-After you add/install the motion sensor component, you will see somes others file was added.
-
-### Adding a Custom BLE GATT Service and Characteristic ###
-The average data that the IADC sampled can be retrieved wirelessly through BLE. To make the data visible, a custom GATT service and characteristic are used.
-
-Open the GATT configurator, which is located in _./config/btconf/gatt_configuration.btconf_. The GATT configurator GUI has been updated and is very different compared to SSv4.
-For this lab, the Device name will be modified to "LE Voltage Monitor" located under the Generic Access characteristics. The Value length will have to be updated to 18.
-Click on the left-most icon in the top left corner of the GATT configurator and select New Service.
-Click on the new custom service and rename the service to "Voltage Monitor".
-Add an ID to the custom service to give a meaningful ID reference to the service. For this lab, "voltage_monitor" is used for the ID.
-
-Click on the left-most icon in the top left corner of the GATT configurator and select New Characteristic.
-Click on the new custom characteristic. For this lab, rename the characteristic to be "Average Voltage Data".
-Add an ID to the custom characteristic. For this lab, "avg_voltage_data" is used for the ID. This ID field will create a meaningful name for the GATT characteristic variable to use in code development. This variable can be found in gatt_db.h and the variable will be prefixed with gattdb.
-Select USER for the Value settings. This will require the user to allocate their own resources for the GATT characteristic. For more information, see KBA.
-Select Notify under Properties. The EFR32 device will notify connected devices of any GATT characteristic value changes.
-
+After you add/install the motion sensor component, you will see somes other files was added.
+In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
 void sl_internal_app_process_action(void)
 {
   sl_gatt_service_imu_step();
 }
+If you open the config->btconf->gatt_configuration.btcon gatt configure file, you could see the Accleration and Orientation was added.
 
 ### Adding the Project Source Files ###
-Copy app.c source file to the top level of the project. The source files (autommatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
+Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
 
 #### Recap of this step (explanation): ####
 
