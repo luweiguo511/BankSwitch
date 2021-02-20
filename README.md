@@ -13,15 +13,16 @@
 
 # Quickly Add an Accelerometer with SPI #
 ## Overview ##
-Our energy-friendly EFM32 and EFR32 microcontrollers (MCUs) are ideal for ultra-low power applications. Based on ARM® Cortex® -M0+, Cortex-M3, and Cortex-M4 cores, our 32-bit MCUs extend battery life for those "hard-to-reach", power-sensitive consumer and industrial applications. Engineered for low power and intelligent design, our MCUs can scale power consumption while still performing real-time embedded tasks.
-
+For IOT (Internet of Things) solution, it offen use sensor like IMU (Inertial measurement Unit). The EFR32BG22 thunderboard (kit SLTB010A) populate a ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
+https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
+https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 
 
 ### Topic Covered ###
-- imu (Inertia Motion Sensor) sensor
+- IMU (Inertial Measurement Unit) sensor
 - Software component
 - Pintool
-- Simplicity Studio v5
+- EFR connect.
 
 ## Component dependency ##
 
