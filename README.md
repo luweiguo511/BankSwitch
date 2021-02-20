@@ -181,8 +181,8 @@ void sl_imu_update(void)
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
 sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
 
-### app.c ###
-#### Application ####
+### Application (app.c) ###
+
 The SoC-Empty project generates a default app.c source file with a skeleton Bluetooth event handler. The app.c file provided for this lab adds code to handle the BLE connection and notifications.
 #### Connection Opened ####
 The imu sensor is initialized in app_init() in line 35 of app.c. The voltage monitor IADC does not start sampling until a connection has been made and the user has enabled GATT notifications to the Average Volage Data characteristic.
