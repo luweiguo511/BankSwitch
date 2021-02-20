@@ -152,36 +152,72 @@ You could move the position of the TB to see this change.
 ## Code Explanation ##
 The following sections explain critical lines of code pertinent to this lab. The code can be found in different files (driver).
 ### Accelerometer (icm20648) Driver ###
-#### sl_icm20648.c ####
-C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
-This is the driver file for ICM20648 prepared by Silabs. If you use sensor from other vendor, you may need to consider to implement the similar driver for it.
-Please consider to contact with the vendor of the sensor you use to get help on how to implement the driver.
-
 #### sl_icm20648_config.h ####
 This is a header file generated automatically bu the Simplicity Studio pintool/software component. You may need to change the pin map based on your hardware.
 Use the software components->Platform->Board drivers->ICM20648->Configure to change this.
 picture here:
 
+#### sl_icm20648.c ####
+C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
+This is the driver file for ICM20648 prepared by Silabs. If you use sensor from other vendor, you may need to consider to implement the similar driver for it.
+Please consider to contact with the vendor of the sensor you use to get help on how to implement the driver.
+
+
+
 
 #### sl_imu_fuse.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
- ******************************************************************************/
-void sl_imu_update(void)
+
+void sl_imu_fuse_update(sl_imu_sensor_fusion_t *f)
 {
-  sl_imu_fuse_update(&fuseObj);
+  uint8_t imu_state = sl_imu_get_state();
+  if ( imu_state != IMU_STATE_READY ) {
+    return;
+  }
+
+  /* Get accelerometer data and update Fuse filter */
+  sl_imu_get_acceleration_raw_data(f->aVector);
+  sl_imu_fuse_accelerometer_update_filter(f, f->aVector);
+
+  /* Get gyro data and update fuse */
+  sl_imu_get_gyro_raw_data(f->gVector);
+  f->gVector[0] = -f->gVector[0];
+  f->gVector[1] = -f->gVector[1];
+  sl_imu_fuse_gyro_update(f, f->gVector);
+
+  /* Perform fusion to compensate for gyro drift */
+  sl_imu_fuse_gyro_calculate_correction_vector(f, true, false, 0);
 }
 
 #### sl_imu.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
+
 void sl_imu_update(void)
 {
   sl_imu_fuse_update(&fuseObj);
 }
-
+void sl_imu_get_orientation(int16_t ovec[3])
+{
+  ovec[0] = (int16_t) (100.0f * IMU_RAD_TO_DEG_FACTOR * fuseObj.orientation[0]);
+  ovec[1] = (int16_t) (100.0f * IMU_RAD_TO_DEG_FACTOR * fuseObj.orientation[1]);
+  ovec[2] = (int16_t) (100.0f * IMU_RAD_TO_DEG_FACTOR * fuseObj.orientation[2]);
+}
 
 #### sl_sensor_imu.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
+
 sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
+{
+  sl_status_t sc = SL_STATUS_NOT_READY;
+  if (sl_imu_is_data_ready()) {
+    sl_imu_update();
+    sl_imu_get_orientation(ovec);
+    sl_imu_get_acceleration(avec);
+    sc = SL_STATUS_OK;
+  }
+  return sc;
+}
+
 
 ### Application (app.c) ###
 
