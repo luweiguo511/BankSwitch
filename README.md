@@ -151,7 +151,7 @@ You could move the position of the TB to see this change.
 
 ## Code Explanation ##
 The following sections explain critical lines of code pertinent to this lab. The code can be found here:
-
+### Accelerometer (icm20648) Driver ###
 #### sl_icm20648.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
 - aa
