@@ -16,14 +16,16 @@
 For IOT (Internet of Things) solution, it offen use sensor like IMU (Inertial measurement Unit). The EFR32BG22 thunderboard (kit SLTB010A) populate a ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
 
 https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
+
 https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 
+This lab show how to add an Accelerometer sensor (like IMU) quickly.
 
 ### Topic Covered ###
 - IMU (Inertial Measurement Unit) sensor
 - Software component
 - Pintool
-- EFR connect.
+- EFR connect app. 
 
 ## Component dependency ##
 
@@ -50,15 +52,19 @@ https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 - EFR32BG21
 
 # Getting Started #
-Review the following material before starting the Bluetooth 5 labs. Ensure that you have the correct hardware and software to successfully complete the labs.
+Review the following material before starting this labs. Ensure that you have the correct hardware and software to successfully complete the labs.
 
 ## Hardware Requirements ##
 Silicon Labs Thunderboard BG22 Kit: SLTB010A
-EFR32BG22 Soc
+-	EFR32BG22C224F512IM40 Soc
+-	6-axis IMU (Inertial Measurement Unit): TDK InvenSense ICM-20648 
 ## Software Requirements ##
-Simplicity Studio v5
-Gecko SDK v3.0 with the Bluetooth stack installed
-EFRConnect Mobile App
+- Simplicity Studio v5
+- Gecko SDK v3.1 (GSTK) or obove with the Bluetooth stack installed
+- EFRConnect Mobile App
+-	If you have problem to access Google Play in china mainland, try link here
+-	If you have problem to access Apple store or don’t have an account, try link here.
+
 ## Install Tools ##
 Download and install Simplicity Studio 5 if it is not already installed.
 
