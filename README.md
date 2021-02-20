@@ -124,8 +124,10 @@ Right-click on the hex file and select Flash to Device... to make the Flash Prog
 Click Program to flash the device.
 
 ## Usage ##
-Connecting with EFR Connect App
-
+### Connecting with EFR Connect App ###
+With the EFR Connect App, connect to the device and view the average voltage data that is sent from the EFR32BG22 device.
+Click the notify button, you should see the sensor data get updated regularly.
+You could move the position of the TB to see this change.
 
 ### Documentation ###
 
@@ -220,6 +222,16 @@ Your own driver.
 Note: Bootloader.
 ## Reference ##
 ### peripheral examples ###
+
+https://github.com/SiliconLabs/peripheral_examples
+
+### GSDK document ###
+
+https://docs.silabs.com/gecko-platform/latest/
+
+### SS v5 user guide ###
+https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-overview/
+
 ### platform application ###
 ### platform hardware driver ###
 
