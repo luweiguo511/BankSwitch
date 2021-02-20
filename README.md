@@ -13,7 +13,7 @@
 
 # Quickly Add an Accelerometer with SPI #
 ## Overview ##
-For IOT (Internet of Things) solution, it offen uses sensor like IMU (Inertial measurement Unit). The EFR32BG22 thunderboard (kit SLTB010A) has an ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
+For IOT (Internet of Things) solution, it offen uses accelerometer sensor like IMU (Inertial measurement Unit). The EFR32BG22 thunderboard (kit SLTB010A) has an ICM20648 sensor (6-axis) from vendor TDK InvenSense. 
 
 https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit
 
@@ -24,7 +24,6 @@ This lab show how to add an Accelerometer sensor (like IMU) quickly.
 #### Topic Covered ####
 - IMU/Accelerometer (Inertial Measurement Unit) sensor
 - Software component
-- Pintool
 - EFR connect app. 
 
 ## Getting Started ##
@@ -44,6 +43,7 @@ Which included:
 
 ### Install Tools ###
 Download and install Simplicity Studio 5 if it is not already installed.
+
 https://www.silabs.com/products/development-tools/software/simplicity-studio
 
 ### Connect your Hardware ###
@@ -51,16 +51,15 @@ Attach the development kit assembly to the PC with Simplicity Studio installed b
 picture here.
 
 ## Hardware introduction ##
-refer to this page for detailed information:
+Refer to this page for detailed information (Schematic for BG22 thunderboard):
 
 https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf
 
-picture here.
 
 ### ###
 picture uploaded here:
 Pins used to connect between the EFR32BG22 and IMU:
-- spi_MOSI,
+- SPI_MOSI,
 - SPI_MISO
 - SPI_SCLK
 - SPI_CS
@@ -86,7 +85,7 @@ Note: to filter the projects, click on Bluetooth for the Technology Type. and em
 13. you could see gatt_configuration.btconf, soc_spi_acc.slcp and readme.
 14. 
 
-summary:
+#### Recap of this step: ####
 file included.
 Check Installed Components, you will see:
 Adanced Configurator
@@ -97,6 +96,8 @@ services->NVM3
 services->Device Initialization->Device Init, Clocks/DPLL/DC-DC, etc. 
 services->Sleep Timer
 bbb
+
+
 ### Installing the imu sensor components ###
 14. Open (click) the soc_spi_acc.sclp file. The file will show information about the target hardware and software (in overview->project details).
 15. Select the Software Components tab at the top.
@@ -107,7 +108,7 @@ bbb
 - Bluetooth->GATT->Inertial Measurement Unit GATT Service.
 - Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
 - Bluetooth->Sensor->Inertial Measurement Unit GATT Service.
-explaination:
+#### Recap of this step (explaination): ####
 #### Platfrom-Board Driver->ICM20648 -> Motion Sensor ####
 for the motion sensor component, you will see the file was added.
 the file was generated automatically.
@@ -132,6 +133,9 @@ Select Notify under Properties. The EFR32 device will notify connected devices o
 
 ## Adding the Project Source Files ##
 Copy le_voltage_monitor.c, le_voltage_monitor.h, and app.c source files to the top level of the project. The source files and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path:
+
+### Recap of this step (explaination): ###
+
 ## Build and Flash the Project ##
 Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. Note: if a Device Selection window appears, select the correct device.
@@ -143,12 +147,10 @@ With the EFR Connect App, connect to the device and view the average voltage dat
 Click the notify button, you should see the sensor data get updated regularly.
 You could move the position of the TB to see this change.
 
-### Documentation ###
+### Recap ###
 
 ## Code Explanation ##
 The following sections explain critical lines of code pertinent to this lab. The code can be found here:
-### Creating the Project ###
-### Documentation ###
 
 ### sl_icm20648.c ###
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
