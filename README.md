@@ -156,7 +156,7 @@ Some change was made in the app.c file.
       break;      
       
 ### Build and Flash the Project ###
-Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspectibe.
+Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspective.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. 
 Note: if a Device Selection window appears, select the correct device.
 Click Program to flash the device.
@@ -165,22 +165,20 @@ Click Program to flash the device.
 ### Connecting with EFR Connect App ###
 With the EFR Connect App, connect to the device and view the sensor data that is sent from the EFR32BG22 device (via notification).
 Click the notify button, you should see the sensor data get updated regularly.
-You could move the oritention of the Thunderboard to see this change.
-
-### Recap ###
+You could move the orientation of the Thunderboard to see this change.
 
 ## Code Explanation ##
 The following sections explain critical lines of code pertinent to this lab. The code can be found in different files (driver).
 ### Accelerometer (icm20648) Driver ###
 #### sl_icm20648_config.h ####
-This is a header file generated automatically bu the Simplicity Studio pintool/software component. You may need to change the pin map based on your hardware.
+This is a header file generated automatically by the Simplicity Studio pintool/software component. You may need to change the pin map based on your hardware.
 Use the software components->Platform->Board drivers->ICM20648->Configure to change this.
 picture here:
 
 #### sl_icm20648.c ####
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
-This is the driver file for ICM20648 prepared by Silabs. If you use sensor from other vendor, you may need to consider to implement the similar driver for it.
-Please consider to contact with the vendor of the sensor you use to get help on how to implement the driver.
+This is the driver file for ICM20648 prepared by Silabs. If you use sensor from aother vendor, you may need to consider to implement the similar driver for it.
+Please consider to contact with the vendor of the sensor you use to get help on how implementing the driver.
 
 
 
