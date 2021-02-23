@@ -134,42 +134,13 @@ Note: UUID for Acceleration and Orientation could be attained in this step.
 C:\Users\user_acount\SimplicityStudio\v5_workshop\soc_spi_acc
 Where user_acount is the default workspace and SS installation path.
 You can also edit the app.c file manually if you prefer to this way.
-#### Recap of this step (explanation):
-```
-static void sensor_init(void)
-{
-  sl_sensor_imu_init();
-  sl_sensor_imu_enable(true);
-}
-sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
-{
-  return sl_sensor_imu_get(ovec, avec);
-}
-Some change was made in the app.c file. 
-    // -------------------------------
-    // This event indicates that a new connection was opened.
-    case sl_bt_evt_connection_opened_id:
-      sensor_init();
-      break;
-    // -------------------------------
-    // This event indicates that a connection was closed.
-    case sl_bt_evt_connection_closed_id:
-      // Restart advertising after client has disconnected.
-      sc = sl_bt_advertiser_start(
-        advertising_set_handle,
-        advertiser_general_discoverable,
-        advertiser_connectable_scannable);
-      sl_app_assert(sc == SL_STATUS_OK,
-                    "[E: 0x%04x] Failed to start advertising\n",
-                    (int)sc);
-        sl_sensor_imu_deinit();      
-      break;      
-```
+
 ### Build and Flash the Project
 18. Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspective.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. 
 Note: if a Device Selection window appears, select the correct device.
-Click Program to flash the device.
+19. Click Program to flash the device.
+Note: The BG22 has additional security features and in some cases (i.e., when the board is first plugged in), the tools will prompt to query the Debug Challenge Interface (DCI). Select the connected device and then the link for “Click to Query Lock Status.” The device target to program text will no longer be grayed out and then select “OK.”
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Program.png"/>
 
@@ -184,13 +155,12 @@ Or filter thee scanning via RSS strength and other.
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Commander.png"/>
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/UUID.png"/>
 
-
-Click the notify button, you should see the sensor data get updated regularly.
+Click the notify button (UUID that has 885D and 45DD)
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/EFR_Connect_2.png"/>
 
 
-You could move the orientation of the Thunderboard to see this change.
+You should see the sensor data get updated regularly.
 You could change the orientation of the Thunderboard to see this change.
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/EFR_Connect_3.png"/>
@@ -204,7 +174,7 @@ The following sections explain critical lines of code pertinent to this lab. The
 #### sl_icm20648_config.h
 This is a header file generated automatically by the Simplicity Studio pintool/software component. You may need to change the pin map based on your hardware.
 Use the software components->Platform->Board drivers->ICM20648->Configure to change this.
-picture here:
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/pintool.png"/>
 
 #### sl_icm20648.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
