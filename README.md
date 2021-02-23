@@ -226,11 +226,12 @@ The SoC-Empty project generates a default app.c source file with a skeleton Blue
 #### Connection Opened
 The imu sensor is initialized and enabled when event sl_bt_evt_connection_opened_id received. The imu sampling does not start sampling until a connection has been made and the user has enabled GATT notifications acceleration (or orientation) characteristics. 
 ```
-static void sensor_init(void)
-{
-  sl_sensor_imu_init();
-  sl_sensor_imu_enable(true);
-}
+    static void sensor_init(void)
+    {
+      sl_sensor_imu_init();
+      sl_sensor_imu_enable(true);
+    }
+    
     // -------------------------------
     // This event indicates that a new connection was opened.
     case sl_bt_evt_connection_opened_id:
@@ -255,7 +256,6 @@ When the connection is closed, the sl_bt_evt_connection_closed_id event is trigg
                     "[E: 0x%04x] Failed to start advertising\n",
                     (int)sc);
       break;
-
 ```
 
 ### BLE notification
@@ -272,19 +272,19 @@ C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
 #### sl_gatt_service_imu.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\gatt_service_imu
 ```
-void sl_gatt_service_imu_step(void)
-{
-  if (imu_state) {
-    if (SL_STATUS_OK == sl_gatt_service_imu_get(imu_ovec, imu_avec)) {
-      if (imu_acceleration_notification) {
-        imu_acceleration_notify();
-      }
-      if (imu_orientation_notification) {
-        imu_orientation_notify();
+    void sl_gatt_service_imu_step(void)
+    {
+      if (imu_state) {
+        if (SL_STATUS_OK == sl_gatt_service_imu_get(imu_ovec, imu_avec)) {
+          if (imu_acceleration_notification) {
+            imu_acceleration_notify();
+          }
+          if (imu_orientation_notification) {
+            imu_orientation_notify();
+          }
+        }
       }
     }
-  }
-}
 ```
 
 ## Porting consideration
