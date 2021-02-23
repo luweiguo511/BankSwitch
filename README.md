@@ -236,7 +236,7 @@ C:\Users\delu\SimplicityStudio\v5_workshop\soc_spi_acc\autogen
 ```
     void sl_internal_app_process_action(void)
     {
-      sl_sensor_sound_step();
+      sl_gatt_service_imu_step();
     }
 ```
 #### sl_gatt_service_imu.c
