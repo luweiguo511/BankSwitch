@@ -75,6 +75,8 @@ Note: to filter the projects, Select/Checked the Bluetooth for the "Technology T
 10. Check "Use default location" (workspace).
 11. Click Finish to generate the project.
 12. The IDE perspective launchered automatically.
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/IDE_windows.png"/>
+
 13. You could see gatt_configuration.btconf, soc_spi_acc.slcp and readme showed up.
 
 #### Recap of this step:
