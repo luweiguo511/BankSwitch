@@ -126,6 +126,7 @@ C:\Users\user_acount\SimplicityStudio\v5_workshop\soc_spi_acc
 Where user_acount is the default workspace and SS installation path.
 You can also edit the app.c file manually if you prefer to this way.
 #### Recap of this step (explanation):
+```
 static void sensor_init(void)
 {
   sl_sensor_imu_init();
@@ -154,7 +155,7 @@ Some change was made in the app.c file.
                     (int)sc);
         sl_sensor_imu_deinit();      
       break;      
-      
+```
 ### Build and Flash the Project
 Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspective.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. 
@@ -223,7 +224,7 @@ void sl_imu_get_orientation(int16_t ovec[3])
 
 #### sl_sensor_imu.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
-
+```
 sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
 {
   sl_status_t sc = SL_STATUS_NOT_READY;
@@ -235,13 +236,14 @@ sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
   }
   return sc;
 }
-
+```
 
 ### Application (app.c)
 
 The SoC-Empty project generates a default app.c source file with a skeleton Bluetooth event handler. The app.c file provided for this lab adds code to handle the BLE connection and notifications.
 #### Connection Opened
 The imu sensor is initialized in app_init() in line 35 of app.c. The voltage monitor IADC does not start sampling until a connection has been made and the user has enabled GATT notifications to the Average Volage Data characteristic.
+```
 static void sensor_init(void)
 {
   sl_sensor_imu_init();
@@ -253,8 +255,9 @@ static void sensor_init(void)
       sensor_init();
       break;
       
-
+```
 #### Notifications Enabled
+```
 #if defined(SL_CATALOG_GATT_SERVICE_IMU_PRESENT) && defined(SL_CATALOG_SENSOR_IMU_PRESENT)
 sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
 {
@@ -275,17 +278,19 @@ sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
                     (int)sc);
       break;
 
-
+```
 ### BLE notification
 #### sl_event_handler.c
 C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
+```
 void sl_internal_app_process_action(void)
 {
   sl_sensor_sound_step();
 }
+```
 #### sl_gatt_service_imu.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\gatt_service_imu
-
+```
 void sl_gatt_service_imu_step(void)
 {
   if (imu_state) {
@@ -299,7 +304,7 @@ void sl_gatt_service_imu_step(void)
     }
   }
 }
-
+```
 
 ## Porting consideration
 ### other driver
