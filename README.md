@@ -51,7 +51,7 @@ Attach the BG Thunderboard kit to the PC with Simplicity Studio installed by usi
 <img src="https://docs.silabs.com/resources/bluetooth/lab-manuals/getting-started-with-bluetooth-in-simplicity-studio-v5/images/1.3connectyourhardware.png" title="Silicon Labs Gecko and Wireless Gecko MCUs" alt="EFM32 32-bit Microcontrollers" width="250"/>
   <tr>
     <td align="left" valign="middle">
-    <h1>J-Link USB Port</h1>
+    <J-Link USB Port>
   </td>
 ## Hardware Introduction
 Refer to [this page](https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf) for detailed hardware information (Schematic for BG22 Thunderboard in pdf format).
