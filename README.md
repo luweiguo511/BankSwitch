@@ -26,38 +26,38 @@ This lab shows how to add an accelerometer sensor (like IMU) quickly.
 - Software component
 - EFR connect app. 
 
-## Getting Started ##
+## Getting Started
 Review the following material before starting this lab. Ensure that you have the correct hardware and software prepared to successfully complete the lab.
 
-### Hardware Requirements ###
+### Hardware Requirements
 Silicon Labs BG22 Thunderboard Kit: SLTB010A
 
 Which included:
 -	EFR32BG22C224F512IM40 Soc
 -	6-axis IMU (Inertial Measurement Unit): TDK InvenSense ICM-20648 with SPI interface
-### Software Requirements ###
+### Software Requirements
 - Simplicity Studio v5
 - Gecko SDK v3.1 (GSDK) or above with the Bluetooth Stack (v3.1.1) installed
 - EFR Connect Mobile App
 -	•	If you have problem to access Google Play in china mainland, try link here
 -	•	If you have problem to access Apple store or don’t have an account, try link here.
 
-### Install Tools ###
+### Install Tools
 Download and install Simplicity Studio v5 if it is not already installed. Be sure to update to have GSDK 3.1.x and Bluetooth Stack installed.
 
 https://www.silabs.com/products/development-tools/software/simplicity-studio
 
-### Connect your Hardware ###
+### Connect your Hardware
 Attach the BG Thunderboard kit to the PC with Simplicity Studio installed by using a USB cable (not a charging cable). Connecting between the PC host USB port to the J-link USB port (micro) on the kit.
 picture here.
 
-## Hardware Introduction ##
+## Hardware Introduction
 Refer to this page for detailed hardware information (Schematic for BG22 Thunderboard in pdf format):
 
 https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf
 
 
-### Connection between IMU sensor and EFR32BG22 ###
+### Connection between IMU sensor and EFR32BG22
 picture uploaded here:
 
 Pins used to connect between the EFR32BG22 and IMU:
@@ -70,8 +70,8 @@ Pins used to connect between the EFR32BG22 and IMU:
 - IMU_INT (PB03)
 
 
-## Lab ##
-### Creating the Project (based on SOC empty) ###
+## Lab
+### Creating the Project (based on SOC empty)
 1. If the BG22 Thunderboard has not been plugged into PC using the USB cable (micro type), do so now. The kit and debug information (board and target) should be displayed in the Launcher->Debug Adapters window. Picture here!!!
 2. In the "Debug Adapters window", click on the device (board).
 3. Information about the target hardware and software will appear in Launcher -> Overview tab (together with the Adapter FW and Secure FW version). If this does not appear, click on the Launcher button in the top right corner.
@@ -87,7 +87,7 @@ Note: to filter the projects, click on Bluetooth for the "Technology Type" and e
 12. The IDE perspective launchered automatically.
 13. You could see gatt_configuration.btconf, soc_spi_acc.slcp and readme showed up.
 
-#### Recap of this step: ####
+#### Recap of this step:
 In fact, the SOC Empty project will install some software components. You could check what has installed via checking the "Installed Components" under "Software Components", you will see component like below were installed:
 - Advanced Configurator -> Bluetooth GATT Configurator
 - Bluethooth -> OTA -> AppLoader,
@@ -96,7 +96,7 @@ In fact, the SOC Empty project will install some software components. You could 
 
 
 
-### Installing the imu sensor components ###
+### Installing the imu sensor components
 14. Open (click) the soc_spi_acc.sclp file. The Overview will show information about the target hardware and software.
 Note: Target and SDK Selection, Ensure the Board should be thunderboard EFR32BG22.
 15. Select the Software Components tab at the top.
@@ -107,11 +107,11 @@ Note: Target and SDK Selection, Ensure the Board should be thunderboard EFR32BG2
 - Bluetooth -> GATT -> Inertial Measurement Unit GATT Service.
 - Bluetooth -> Sensor -> Inertial Measurement Unit Sensor.
 
-#### Recap of this step (explanation): ####
-##### Motion Sensor #####
+#### Recap of this step (explanation):
+##### Motion Sensor
 After you add/install the motion sensor component, you will see somes files was added.
 
-##### Inertial Measurement Unit GATT Service. #####
+##### Inertial Measurement Unit GATT Service.
 After you add/install the Inertial Measurement Unit GATT Service, you will see somes other files was added.
 In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
 void sl_internal_app_process_action(void)
@@ -120,12 +120,12 @@ void sl_internal_app_process_action(void)
 }
 If you open the config->btconf->gatt_configuration.btcon gatt configure file, you could see the Acceleration and Orientation was added.
 
-### Adding the Project Source Files ###
+### Adding the Project Source Files
 Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path.
 C:\Users\user_acount\SimplicityStudio\v5_workshop\soc_spi_acc
 Where user_acount is the default workspace and SS installation path.
 You can also edit the app.c file manually if you prefer to this way.
-#### Recap of this step (explanation): ####
+#### Recap of this step (explanation):
 static void sensor_init(void)
 {
   sl_sensor_imu_init();
@@ -155,27 +155,27 @@ Some change was made in the app.c file.
         sl_sensor_imu_deinit();      
       break;      
       
-### Build and Flash the Project ###
+### Build and Flash the Project
 Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspective.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. 
 Note: if a Device Selection window appears, select the correct device.
 Click Program to flash the device.
 
-## Usage ##
-### Connecting with EFR Connect App ###
+## Usage
+### Connecting with EFR Connect App
 With the EFR Connect App, connect to the device and view the sensor data that is sent from the EFR32BG22 device (via notification).
 Click the notify button, you should see the sensor data get updated regularly.
 You could move the orientation of the Thunderboard to see this change.
 
-## Code Explanation ##
+## Code Explanation
 The following sections explain critical lines of code pertinent to this lab. The code can be found in different files (driver).
-### Accelerometer (icm20648) Driver ###
-#### sl_icm20648_config.h ####
+### Accelerometer (icm20648) Driver
+#### sl_icm20648_config.h
 This is a header file generated automatically by the Simplicity Studio pintool/software component. You may need to change the pin map based on your hardware.
 Use the software components->Platform->Board drivers->ICM20648->Configure to change this.
 picture here:
 
-#### sl_icm20648.c ####
+#### sl_icm20648.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
 This is the driver file for ICM20648 prepared by Silabs. If you use sensor from aother vendor, you may need to consider to implement the similar driver for it.
 Please consider to contact with the vendor of the sensor you use to get help on how implementing the driver.
@@ -183,7 +183,7 @@ Please consider to contact with the vendor of the sensor you use to get help on 
 
 
 
-#### sl_imu_fuse.c ####
+#### sl_imu_fuse.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
 
 void sl_imu_fuse_update(sl_imu_sensor_fusion_t *f)
@@ -207,7 +207,7 @@ void sl_imu_fuse_update(sl_imu_sensor_fusion_t *f)
   sl_imu_fuse_gyro_calculate_correction_vector(f, true, false, 0);
 }
 
-#### sl_imu.c ####
+#### sl_imu.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
 
 void sl_imu_update(void)
@@ -221,7 +221,7 @@ void sl_imu_get_orientation(int16_t ovec[3])
   ovec[2] = (int16_t) (100.0f * IMU_RAD_TO_DEG_FACTOR * fuseObj.orientation[2]);
 }
 
-#### sl_sensor_imu.c ####
+#### sl_sensor_imu.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
 
 sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
@@ -237,10 +237,10 @@ sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
 }
 
 
-### Application (app.c) ###
+### Application (app.c)
 
 The SoC-Empty project generates a default app.c source file with a skeleton Bluetooth event handler. The app.c file provided for this lab adds code to handle the BLE connection and notifications.
-#### Connection Opened ####
+#### Connection Opened
 The imu sensor is initialized in app_init() in line 35 of app.c. The voltage monitor IADC does not start sampling until a connection has been made and the user has enabled GATT notifications to the Average Volage Data characteristic.
 static void sensor_init(void)
 {
@@ -254,14 +254,14 @@ static void sensor_init(void)
       break;
       
 
-#### Notifications Enabled ####
+#### Notifications Enabled
 #if defined(SL_CATALOG_GATT_SERVICE_IMU_PRESENT) && defined(SL_CATALOG_SENSOR_IMU_PRESENT)
 sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
 {
   return sl_sensor_imu_get(ovec, avec);
 }
 
-#### Connection Closed ####
+#### Connection Closed
     // -------------------------------
     // This event indicates that a connection was closed.
     case sl_bt_evt_connection_closed_id:
@@ -276,14 +276,14 @@ sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
       break;
 
 
-### BLE notification ###
-#### sl_event_handler.c ####
+### BLE notification
+#### sl_event_handler.c
 C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
 void sl_internal_app_process_action(void)
 {
   sl_sensor_sound_step();
 }
-#### sl_gatt_service_imu.c ####
+#### sl_gatt_service_imu.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\gatt_service_imu
 
 void sl_gatt_service_imu_step(void)
@@ -301,8 +301,8 @@ void sl_gatt_service_imu_step(void)
 }
 
 
-## Porting consideration ##
-### other driver ###
+## Porting consideration
+### other driver
 BG22 Thunderboard also integrated other sensors:
 - Silabs Relative humidity & temperature sensor: I2C Si7021
 - Silabs UV and ambient light sensor: I2C Si1133
@@ -314,16 +314,16 @@ Your own driver.
 
 Note: The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first.
 
-## Reference ##
-### Peripheral examples ###
+## Reference
+### Peripheral examples
 
 https://github.com/SiliconLabs/peripheral_examples
 
-### GSDK document ###
+### GSDK document
 
 https://docs.silabs.com/gecko-platform/latest/
 
-### SS v5 user guide ###
+### SS v5 user guide
 https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-overview/
 
 
