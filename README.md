@@ -95,14 +95,16 @@ Note: Target and SDK Selection, Ensure the Board should be thunderboard EFR32BG2
 16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
 17. Install the following components using the Install button as shown in the image. The process is repeated for all components needed to add.
 - Services -> IO stream ->IO Stream: USART (dependent).
-<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/IDE_windows.png"/>
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/IO_Stream.png"/>
 
 - Platform -> Board Driver -> IMU - Inertial Measurement Unit
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/sensor_imu_sensor.png"/>
 
 - Bluetooth -> GATT -> Inertial Measurement Unit GATT Service.
 - Bluetooth -> Sensor -> Inertial Measurement Unit Sensor.
-<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/IDE_windows.png"/>
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/GATT_Sensor.png"/>
+
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/GATT_Service.png"/>
 
 #### Recap of this step (explanation):
 ##### Motion Sensor
