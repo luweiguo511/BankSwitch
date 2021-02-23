@@ -263,6 +263,7 @@ BG22 Thunderboard also integrated other sensors:
 - Silabs Relative humidity & temperature sensor: I2C [Si7021](https://www.silabs.com/sensors/humidity/si7006-13-20-21-34)
 - Silabs UV and ambient light sensor: I2C [Si1133](https://www.silabs.com/sensors/optical/si1133)
 - Silabs Hall effect sensor: I2C [Si7210](https://www.silabs.com/sensors/magnetic/si7210)
+
 If your solution need these sensors, you may use similar procedure to add them.
 ### Bootloader
 The SOC Empty project don't have the bootloader, ensure to program the bootloader to the device first. In some cases, the bootloader may be missing from the device if it has been completely erased. If that happens:
