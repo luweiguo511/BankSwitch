@@ -57,7 +57,7 @@ Refer to [this page](https://www.silabs.com/documents/public/schematic-files/BRD
 
 
 ### Connection between IMU sensor and EFR32BG22
-
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/hardware_connection.png"/>
 
 Pins used to connect between the EFR32BG22 and IMU:
 - SPI interface:
