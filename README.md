@@ -209,7 +209,7 @@ static void sensor_init(void)
 #### Connection Closed
 When the connection is closed, the sl_bt_evt_connection_closed_id event is triggered, to save power when no devices are connected the sensor was disabled via sensor_deinit() function.
 
-    ```
+```
     // -------------------------------
     // This event indicates that a connection was closed.
     case sl_bt_evt_connection_closed_id:
@@ -223,19 +223,19 @@ When the connection is closed, the sl_bt_evt_connection_closed_id event is trigg
                     (int)sc);
       break;
 
-    ```
+```
 
 ### BLE notification
 Once the user has enabled GATT notifications to the characteristic, the sl_bt_evt_gatt_server_characteristic_status_id event is triggered. In this event, the device will periodically update the characteristic value until the device disconnects. 
 
 #### sl_event_handler.c
 C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
-    ```
+```
     void sl_internal_app_process_action(void)
     {
       sl_sensor_sound_step();
     }
-    ```
+```
 #### sl_gatt_service_imu.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\gatt_service_imu
 ```
