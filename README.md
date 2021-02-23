@@ -256,6 +256,8 @@ C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluet
       }
     }
 ```
+## Source
+[app.c](https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/app.c)
 
 ## Porting consideration
 ### Other Drivers
