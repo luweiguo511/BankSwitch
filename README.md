@@ -230,6 +230,7 @@ When the connection is closed, the sl_bt_evt_connection_closed_id event is trigg
 Once the user has enabled GATT notifications to the characteristic, the sl_bt_evt_gatt_server_characteristic_status_id event is triggered. In this event, the device will periodically update the characteristic value until the device disconnects. 
 
 #### sl_event_handler.c
+This file was automatically generated and was in folder (workspace) here:
 C:\Users\delu\SimplicityStudio\v5_workshop\soc_spi_acc\autogen
 ```
     void sl_internal_app_process_action(void)
@@ -238,6 +239,7 @@ C:\Users\delu\SimplicityStudio\v5_workshop\soc_spi_acc\autogen
     }
 ```
 #### sl_gatt_service_imu.c
+This file was in folder like below:
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\gatt_service_imu
 ```
     void sl_gatt_service_imu_step(void)
