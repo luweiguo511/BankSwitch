@@ -132,6 +132,7 @@ Note: UUID for Acceleration and Orientation could be attained in this step.
 17. Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. app.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path.
 
 C:\Users\user_acount\SimplicityStudio\v5_workshop\soc_spi_acc
+
 Where user_acount is the default workspace and SS installation path.
 You can also edit the app.c file manually if you prefer to this way.
 
