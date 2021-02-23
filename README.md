@@ -229,8 +229,6 @@ Once the user has enabled GATT notifications to the characteristic, the sl_bt_ev
 
 #### sl_event_handler.c
 C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
-
-
     ```cpp
     void sl_internal_app_process_action(void)
     {
