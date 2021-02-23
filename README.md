@@ -243,7 +243,7 @@ sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
 
 The SoC-Empty project generates a default app.c source file with a skeleton Bluetooth event handler. The app.c file provided for this lab adds code to handle the BLE connection and notifications.
 #### Connection Opened
-The imu sensor is initialized in app_init() in line 35 of app.c. The voltage monitor IADC does not start sampling until a connection has been made and the user has enabled GATT notifications to the Average Volage Data characteristic.
+The imu sensor is initialized and enabled when event sl_bt_evt_connection_opened_id received. The imu sampling does not start sampling until a connection has been made and the user has enabled GATT notifications acceleration (or orientation) characteristics. 
 ```
 static void sensor_init(void)
 {
@@ -257,15 +257,10 @@ static void sensor_init(void)
       break;
       
 ```
-#### Notifications Enabled
-```
-#if defined(SL_CATALOG_GATT_SERVICE_IMU_PRESENT) && defined(SL_CATALOG_SENSOR_IMU_PRESENT)
-sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
-{
-  return sl_sensor_imu_get(ovec, avec);
-}
 
 #### Connection Closed
+When the connection is closed, the sl_bt_evt_connection_closed_id event is triggered, to save power when no devices are connected the sensor was disabled via sensor_deinit() function.
+```
     // -------------------------------
     // This event indicates that a connection was closed.
     case sl_bt_evt_connection_closed_id:
@@ -281,6 +276,8 @@ sl_status_t sl_gatt_service_imu_get(int16_t ovec[3], int16_t avec[3])
 
 ```
 ### BLE notification
+Once the user has enabled GATT notifications to the characteristic, the sl_bt_evt_gatt_server_characteristic_status_id event is triggered. In this event, the device will periodically update the characteristic value until the device disconnects. 
+
 #### sl_event_handler.c
 C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
 ```
