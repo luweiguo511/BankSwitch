@@ -1,16 +1,3 @@
-<table border="0">
-  <tr>
-    <td align="left" valign="middle">
-    <h1>EFM32 and EFR32<br/>Platform Examples</h1>
-  </td>
-  <td align="left" valign="middle">
-    <a href="https://www.silabs.com/mcu/32-bit">
-      <img src="http://pages.silabs.com/rs/634-SLU-379/images/WGX-transparent.png"  title="Silicon Labs Gecko and Wireless Gecko MCUs" alt="EFM32 32-bit Microcontrollers" width="250"/>
-    </a>
-  </td>
-  </tr>
-</table>
-
 # Quickly Add an Accelerometer with SPI
 ## Overview
 For IOT (Internet of Things) solution, it often uses accelerometer sensor like IMU (Inertial Measurement Unit). The [EFR32BG22 Thunderboard](https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit) (kit SLTB010A) has an onboard 6-axis [ICM-20648](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/) sensor from vendor TDK InvenSense. 
@@ -43,18 +30,13 @@ Review the following materials before starting this lab. Ensure that you have th
 ### Install Tools
 Download and install [Simplicity Studio v5](https://www.silabs.com/products/development-tools/software/simplicity-studio) if it is not already installed. Be sure to update to have GSDK 3.1.x and Bluetooth Stack installed.
 
-
-
 ### Connect your Hardware
 Attach the BG Thunderboard kit to the PC with Simplicity Studio installed by using a USB cable (not a charging cable). Connecting between the PC host USB port to the J-link USB port (micro) on the kit.
 
 <img src="https://docs.silabs.com/resources/bluetooth/lab-manuals/getting-started-with-bluetooth-in-simplicity-studio-v5/images/1.3connectyourhardware.png" title="Silicon Labs Gecko and Wireless Gecko MCUs" alt="EFM32 32-bit Microcontrollers" width="250"/>
 
 ## Hardware Introduction
-Refer to [this page](https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf) for detailed hardware information (Schematic for BG22 Thunderboard in pdf format).
-
-
-
+Refer to EFR32BG22 thunderboard [schemtic](https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf) for detailed hardware information (Schematic for BG22 Thunderboard in pdf format).
 
 ### Connection between IMU sensor and EFR32BG22
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/hardware_connection.png"/>
@@ -67,7 +49,6 @@ Pins used to connect between the EFR32BG22 and IMU:
   -  SPI_CS (PB02)
 - IMU_ENABLE (PB04)
 - IMU_INT (PB03)
-
 
 ## Lab
 ### Creating the Project (based on SOC empty)
