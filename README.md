@@ -304,9 +304,9 @@ void sl_gatt_service_imu_step(void)
 ## Porting consideration
 ### other driver
 BG22 Thunderboard also integrated other sensors:
-- Silabs Relative humidity & temperature sensor: I2C Si7021
-- Silabs UV and ambient light sensor: I2C Si1133
-- Silabs Hall effect sensor: I2C Si7210
+- Silabs Relative humidity & temperature sensor: I2C [Si7021](https://www.silabs.com/sensors/humidity/si7006-13-20-21-34)
+- Silabs UV and ambient light sensor: I2C [Si1133](https://www.silabs.com/sensors/optical/si1133)
+- Silabs Hall effect sensor: I2C [Si7210](https://www.silabs.com/sensors/magnetic/si7210)
 
 sensor with i2c
 driver levels
