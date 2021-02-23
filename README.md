@@ -31,6 +31,7 @@ Silicon Labs BG22 Thunderboard Kit: [SLTB010A](https://www.silabs.com/developmen
 Which included:
 -	[EFR32BG22C224F512IM40](https://www.silabs.com/wireless/bluetooth/efr32bg22-series-2-socs) Soc
 -	6-axis IMU (Inertial Measurement Unit): TDK InvenSense [ICM-20648](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/) with SPI interface
+
 An mobile that install EFR Connect Mobile App: Android phone/pad or Apple phone/pad
 ### Software Requirements
 - [Simplicity Studio v5](https://www.silabs.com/products/development-tools/software/simplicity-studio)
