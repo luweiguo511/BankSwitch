@@ -53,8 +53,9 @@ Pins used to connect between the EFR32BG22 and IMU:
 
 ## Lab
 ### Creating the Project (based on SOC empty)
-1. If the BG22 Thunderboard has not been plugged into PC using the USB cable (micro type), do so now. The kit and debug information (board and target) should be displayed in the Launcher->Debug Adapters window. Picture here!!!
-2. In the "Debug Adapters window", click on the device (board).
+1. If the BG22 Thunderboard has not been plugged into PC using the USB cable (micro type), do so now. 
+2. In the "Debug Adapters window", click on the Thunderboard EFR32BG22 (board). The kit and debug information (board and target) should be displayed in the Launcher->Debug Adapters window. 
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Debug_adapter.png"/>
 3. Information about the target hardware and software will appear in Launcher -> Overview tab (together with the Adapter FW and Secure FW version). If this does not appear, click on the Launcher button in the top right corner.
 4. Select the "Preferred SDK" to the latest version. For this lab, the latest version of "Gecko SDK Suite" v3.1.1 is used.
 5. Click on "Create New Project" in the upper right hand corner. A "New Project Wizard" window should appear.
