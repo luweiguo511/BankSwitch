@@ -146,21 +146,21 @@ Note: The BG22 has additional security features and in some cases (i.e., when th
 
 ## Usage
 ### Connecting with EFR Connect App
-With the EFR Connect App, connect to the device and view the sensor data that is sent from the EFR32BG22 device (via notification).
+20. With the EFR Connect App, connect to the device and view the sensor data that is sent from the EFR32BG22 device (via notification).
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/EFR_Connect_1.png"/>
-Note: If there are many Bluetooth device around. You may try to get the ID (Serial number) of the device via Simplicity Commander first. You may also change the device name in GATT configure and use that to know what device you should connect to.
+Note: If there are many Bluetooth device around. You may try to get the MAC of the device via Simplicity Commander (Serial number) first. You may also change the device name in GATT configure and use that to know what device you should connect to.
 Or filter thee scanning via RSS strength and other.
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Commander.png"/>
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/UUID.png"/>
 
-Click the notify button (UUID that has 885D and 45DD)
+21. Click the notify button (UUID that has 885D and 45DD).
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/EFR_Connect_2.png"/>
 
 
-You should see the sensor data get updated regularly.
+22. You should see the sensor data get updated regularly.
 You could change the orientation of the Thunderboard to see this change.
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/EFR_Connect_3.png"/>
@@ -180,8 +180,6 @@ Use the software components->Platform->Board drivers->ICM20648->Configure to cha
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
 This is the driver file for ICM20648 prepared by Silabs. If you use sensor from aother vendor, you may need to consider to implement the similar driver for it.
 Please consider to contact with the vendor of the sensor you use to get help on how implementing the driver.
-
-
 
 
 #### sl_imu_fuse.c/ sl_imu.c/ sl_sensor_imu.c
