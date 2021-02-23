@@ -134,6 +134,7 @@ Note: UUID for Acceleration and Orientation could be attained in this step.
 C:\Users\user_acount\SimplicityStudio\v5_workshop\soc_spi_acc
 
 Where user_acount is the default workspace and SS installation path.
+
 You can also edit the app.c file manually if you prefer to this way.
 
 ### Build and Flash the Project
