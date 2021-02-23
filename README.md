@@ -104,8 +104,6 @@ Note: Target and SDK Selection, Ensure the Board should be thunderboard EFR32BG2
 - Bluetooth -> Sensor -> Inertial Measurement Unit Sensor.
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/GATT_Sensor.png"/>
 
-<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/GATT_Service.png"/>
-
 #### Recap of this step (explanation):
 ##### Motion Sensor
 After you add/install the motion sensor component, you will see somes files was added.
