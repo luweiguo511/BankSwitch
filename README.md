@@ -185,59 +185,11 @@ Please consider to contact with the vendor of the sensor you use to get help on 
 
 
 
-#### sl_imu_fuse.c
+#### sl_imu_fuse.c/ sl_imu.c/ sl_sensor_imu.c
+These are re-pack of the API provided in sl_icm20648.c. The high level code (app.c) call API like sl_sensor_imu_init, sl_sensor_imu_get and others provided in these files to initialize and enable/disable the imu sensor. These files are in folder like below:
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
-
-void sl_imu_fuse_update(sl_imu_sensor_fusion_t *f)
-{
-  uint8_t imu_state = sl_imu_get_state();
-  if ( imu_state != IMU_STATE_READY ) {
-    return;
-  }
-
-  /* Get accelerometer data and update Fuse filter */
-  sl_imu_get_acceleration_raw_data(f->aVector);
-  sl_imu_fuse_accelerometer_update_filter(f, f->aVector);
-
-  /* Get gyro data and update fuse */
-  sl_imu_get_gyro_raw_data(f->gVector);
-  f->gVector[0] = -f->gVector[0];
-  f->gVector[1] = -f->gVector[1];
-  sl_imu_fuse_gyro_update(f, f->gVector);
-
-  /* Perform fusion to compensate for gyro drift */
-  sl_imu_fuse_gyro_calculate_correction_vector(f, true, false, 0);
-}
-
-#### sl_imu.c
-C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
-
-void sl_imu_update(void)
-{
-  sl_imu_fuse_update(&fuseObj);
-}
-void sl_imu_get_orientation(int16_t ovec[3])
-{
-  ovec[0] = (int16_t) (100.0f * IMU_RAD_TO_DEG_FACTOR * fuseObj.orientation[0]);
-  ovec[1] = (int16_t) (100.0f * IMU_RAD_TO_DEG_FACTOR * fuseObj.orientation[1]);
-  ovec[2] = (int16_t) (100.0f * IMU_RAD_TO_DEG_FACTOR * fuseObj.orientation[2]);
-}
-
-#### sl_sensor_imu.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
-```
-sl_status_t sl_sensor_imu_get(int16_t ovec[3], int16_t avec[3])
-{
-  sl_status_t sc = SL_STATUS_NOT_READY;
-  if (sl_imu_is_data_ready()) {
-    sl_imu_update();
-    sl_imu_get_orientation(ovec);
-    sl_imu_get_acceleration(avec);
-    sc = SL_STATUS_OK;
-  }
-  return sc;
-}
-```
+
 
 ### Application (app.c)
 
