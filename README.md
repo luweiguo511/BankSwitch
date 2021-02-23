@@ -230,7 +230,7 @@ When the connection is closed, the sl_bt_evt_connection_closed_id event is trigg
 Once the user has enabled GATT notifications to the characteristic, the sl_bt_evt_gatt_server_characteristic_status_id event is triggered. In this event, the device will periodically update the characteristic value until the device disconnects. 
 
 #### sl_event_handler.c
-C:\Users\delu\SimplicityStudio\v5_workspace\soc_thunderboard_brd4184b\autogen
+C:\Users\delu\SimplicityStudio\v5_workshop\soc_thunderboard_brd4184b\autogen
 ```
     void sl_internal_app_process_action(void)
     {
