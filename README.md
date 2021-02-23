@@ -209,8 +209,7 @@ static void sensor_init(void)
 #### Connection Closed
 When the connection is closed, the sl_bt_evt_connection_closed_id event is triggered, to save power when no devices are connected the sensor was disabled via sensor_deinit() function.
 
-    ```
-    // -------------------------------
+    ```// -------------------------------
     // This event indicates that a connection was closed.
     case sl_bt_evt_connection_closed_id:
       // Restart advertising after client has disconnected.
