@@ -36,11 +36,11 @@ Which included:
 -	[EFR32BG22C224F512IM40](https://www.silabs.com/wireless/bluetooth/efr32bg22-series-2-socs) Soc
 -	6-axis IMU (Inertial Measurement Unit): TDK InvenSense [ICM-20648](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/) with SPI interface
 ### Software Requirements
-- Simplicity Studio v5
+- [Simplicity Studio v5]((https://www.silabs.com/products/development-tools/software/simplicity-studio))
 - Gecko SDK v3.1 (GSDK) or above with the Bluetooth Stack (v3.1.1) installed
 - EFR Connect Mobile App
--	•	If you have problem to access Google Play in china mainland, try link [here](https://github.com/SiliconLabs/EFRConnect-android)
--	•	If you have problem to access Apple store or don’t have an account, try link [here](https://github.com/SiliconLabs/EFRConnect-ios).
+** -	If you have problem to access Google Play in china mainland, try link [here](https://github.com/SiliconLabs/EFRConnect-android)
+** -	If you have problem to access Apple store or don’t have an account, try link [here](https://github.com/SiliconLabs/EFRConnect-ios).
 
 ### Install Tools
 Download and install [Simplicity Studio v5](https://www.silabs.com/products/development-tools/software/simplicity-studio) if it is not already installed. Be sure to update to have GSDK 3.1.x and Bluetooth Stack installed.
