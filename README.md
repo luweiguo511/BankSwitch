@@ -21,7 +21,7 @@ https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/
 
 This lab shows how to add an accelerometer sensor (like IMU) quickly. 
 
-#### Topic Covered ####
+**Topic Covered**
 - Accelerometer (Inertial Measurement Unit) sensor
 - Software component
 - EFR connect app. 
