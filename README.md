@@ -107,14 +107,17 @@ Note: Target and SDK Selection, Ensure the Board should be thunderboard EFR32BG2
 #### Recap of this step (explanation):
 ##### ICM20648 Motion Sensor
 After you add/install the motion sensor component, you will see some files was added. For example, sl_icm20648.c and sl_icm20648.h will be added.
+
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/ICM20648_driver.png"/>
 
 ##### Inertial Measurement Unit GATT Service.
 After you add/install the Inertial Measurement Unit GATT Service, you will see somes other files was added.
 In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
+
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/GATT_Service.png"/>
 
 If you open the config -> btconf -> gatt_configuration.btcon gatt configure file, you could see the Acceleration and Orientation was added.
+
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Acceleration_Orientation.png"/>
 
 In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
