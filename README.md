@@ -15,11 +15,7 @@
 ## Overview
 For IOT (Internet of Things) solution, it often uses accelerometer sensor like IMU (Inertial Measurement Unit). The [EFR32BG22 Thunderboard](https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit) (kit SLTB010A) has an onboard 6-axis [ICM-20648](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/) sensor from vendor TDK InvenSense. 
 
-<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/pintool%20and%20compnent.png" title="Silicon Labs Gecko and Wireless Gecko MCUs" alt="EFM32 32-bit Microcontrollers" width="250"/>
-
-
-
-This lab shows how to add an accelerometer sensor (like IMU) quickly. 
+This lab shows how to add this accelerometer sensor quickly. 
 
 **Topic Covered**
 - Accelerometer (Inertial Measurement Unit) sensor
