@@ -52,13 +52,13 @@ Attach the BG Thunderboard kit to the PC with Simplicity Studio installed by usi
 picture here.
 
 ## Hardware Introduction
-Refer to [this page](https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf) for detailed hardware information (Schematic for BG22 Thunderboard in pdf format):
+Refer to [this page](https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf) for detailed hardware information (Schematic for BG22 Thunderboard in pdf format).
 
 
 
 
 ### Connection between IMU sensor and EFR32BG22
-picture uploaded here:
+
 
 Pins used to connect between the EFR32BG22 and IMU:
 - SPI interface:
