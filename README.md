@@ -26,13 +26,13 @@ This lab shows how to add this accelerometer sensor quickly.
 Review the following materials before starting this lab. Ensure that you have the correct hardware and software prepared to successfully complete the lab.
 
 ### Hardware Requirements
-Silicon Labs BG22 Thunderboard Kit: [SLTB010A](https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit)
+- Silicon Labs BG22 Thunderboard Kit: [SLTB010A](https://www.silabs.com/development-tools/thunderboard/thunderboard-bg22-kit)
 
-Which included:
--	[EFR32BG22C224F512IM40](https://www.silabs.com/wireless/bluetooth/efr32bg22-series-2-socs) Soc
--	6-axis IMU (Inertial Measurement Unit): TDK InvenSense [ICM-20648](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/) with SPI interface
+  Which included:
+   -	[EFR32BG22C224F512IM40](https://www.silabs.com/wireless/bluetooth/efr32bg22-series-2-socs) Soc
+   -	6-axis IMU (Inertial Measurement Unit): TDK InvenSense [ICM-20648](https://invensense.tdk.com/products/motion-tracking/6-axis/icm-20648/) with SPI interface
 
-A mobile device that install EFR Connect Mobile App: Android phone/pad or Apple phone/pad
+- A mobile device that install EFR Connect Mobile App: Android phone/pad or Apple phone/pad
 ### Software Requirements
 - [Simplicity Studio v5](https://www.silabs.com/products/development-tools/software/simplicity-studio)
 - Gecko SDK v3.1 (GSDK) or above with the Bluetooth Stack (v3.1.1) installed
