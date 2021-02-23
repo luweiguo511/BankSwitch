@@ -231,6 +231,7 @@ Once the user has enabled GATT notifications to the characteristic, the sl_bt_ev
 
 #### sl_event_handler.c
 This file was automatically generated and was in folder (workspace) here:
+
 C:\Users\delu\SimplicityStudio\v5_workshop\soc_spi_acc\autogen
 ```
     void sl_internal_app_process_action(void)
