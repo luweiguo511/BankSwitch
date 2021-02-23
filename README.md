@@ -114,11 +114,18 @@ After you add/install the Inertial Measurement Unit GATT Service, you will see s
 In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/GATT_Service.png"/>
 
+If you open the config -> btconf -> gatt_configuration.btcon gatt configure file, you could see the Acceleration and Orientation was added.
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Acceleration_Orientation.png"/>
+
+In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
+```
 void sl_internal_app_process_action(void)
 {
   sl_gatt_service_imu_step();
 }
-If you open the config->btconf->gatt_configuration.btcon gatt configure file, you could see the Acceleration and Orientation was added.
+```
+
+Note: UUID for Acceleration and Orientation could be attained in this step.
 
 ### Adding the Project Source Files
 Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path.
