@@ -264,14 +264,12 @@ BG22 Thunderboard also integrated other sensors:
 - Silabs UV and ambient light sensor: I2C [Si1133](https://www.silabs.com/sensors/optical/si1133)
 - Silabs Hall effect sensor: I2C [Si7210](https://www.silabs.com/sensors/magnetic/si7210)
 
-Note: The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first. In some cases, the bootloader may be missing from the device if it has been completely erased. If that happens:
--  options:
+Note: The SOC Empty project don't have the bootloader, ensure to program the bootloader to the device first. In some cases, the bootloader may be missing from the device if it has been completely erased. If that happens:
+-  Options:
     -  open the Flash Programmer and program the bootloader found here:
 C:\SiliconLabs\SimplicityStudio_v5\developer\sdks\gecko_sdk_suite\v3.1\platform\bootloader\sample-apps\bootloader-storage-internal-single-512k\efr32mg22c224f512im40-brd4182a\bootloader-storage-internal-single-512k.s37
     -  flash the demo example first, then flash the applicatin got here.
 
-
-Note: The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first.
 
 ## Reference
 [Peripheral examples](https://github.com/SiliconLabs/peripheral_examples)
