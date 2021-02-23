@@ -62,10 +62,10 @@ picture uploaded here:
 
 Pins used to connect between the EFR32BG22 and IMU:
 - SPI interface:
-  -SPI_MOSI (PC00)
-  -SPI_MISO (PC01)
-  -SPI_SCLK (PC02)
-  -SPI_CS (PB02)
+  -  SPI_MOSI (PC00)
+  -  SPI_MISO (PC01)
+  -  SPI_SCLK (PC02)
+  -  SPI_CS (PB02)
 - IMU_ENABLE (PB04)
 - IMU_INT (PB03)
 
