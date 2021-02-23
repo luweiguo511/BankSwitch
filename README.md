@@ -50,6 +50,7 @@ Pins used to connect between the EFR32BG22 and IMU:
 - IMU_ENABLE (PB04)
 - IMU_INT (PB03)
 
+
 ## Lab
 ### Creating the Project (based on SOC empty)
 1. If the BG22 Thunderboard has not been plugged into PC using the USB cable (micro type), do so now. The kit and debug information (board and target) should be displayed in the Launcher->Debug Adapters window. Picture here!!!
