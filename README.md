@@ -316,9 +316,9 @@ BG22 Thunderboard also integrated other sensors:
 
 Note: The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first. In some cases, the bootloader may be missing from the device if it has been completely erased. If that happens:
 
--  a. open the Flash Programmer and program the bootloader found here:
+  -  a. open the Flash Programmer and program the bootloader found here:
 C:\SiliconLabs\SimplicityStudio_v5\developer\sdks\gecko_sdk_suite\v3.1\platform\bootloader\sample-apps\bootloader-storage-internal-single-512k\efr32mg22c224f512im40-brd4182a\bootloader-storage-internal-single-512k.s37
--  b. flash the demo example first, then flash the applicatin got here.
+  -  b. flash the demo example first, then flash the applicatin got here.
 
 
 Note: The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first.
