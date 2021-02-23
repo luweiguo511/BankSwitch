@@ -39,22 +39,22 @@ Which included:
 - Simplicity Studio v5
 - Gecko SDK v3.1 (GSDK) or above with the Bluetooth Stack (v3.1.1) installed
 - EFR Connect Mobile App
--	•	If you have problem to access Google Play in china mainland, try link here
--	•	If you have problem to access Apple store or don’t have an account, try link here.
+-	•	If you have problem to access Google Play in china mainland, try link [here](https://github.com/SiliconLabs/EFRConnect-android)
+-	•	If you have problem to access Apple store or don’t have an account, try link [here](https://github.com/SiliconLabs/EFRConnect-ios).
 
 ### Install Tools
-Download and install Simplicity Studio v5 if it is not already installed. Be sure to update to have GSDK 3.1.x and Bluetooth Stack installed.
+Download and install [Simplicity Studio v5](https://www.silabs.com/products/development-tools/software/simplicity-studio) if it is not already installed. Be sure to update to have GSDK 3.1.x and Bluetooth Stack installed.
 
-https://www.silabs.com/products/development-tools/software/simplicity-studio
+
 
 ### Connect your Hardware
 Attach the BG Thunderboard kit to the PC with Simplicity Studio installed by using a USB cable (not a charging cable). Connecting between the PC host USB port to the J-link USB port (micro) on the kit.
 picture here.
 
 ## Hardware Introduction
-Refer to this page for detailed hardware information (Schematic for BG22 Thunderboard in pdf format):
+Refer to [this page](https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf) for detailed hardware information (Schematic for BG22 Thunderboard in pdf format):
 
-https://www.silabs.com/documents/public/schematic-files/BRD4184A-A01-schematic.pdf
+
 
 
 ### Connection between IMU sensor and EFR32BG22
@@ -315,16 +315,11 @@ Your own driver.
 Note: The SOC Empty project don't have the bootloader, be sure to program the bootloader to the device first.
 
 ## Reference
-### Peripheral examples
+[Peripheral examples](https://github.com/SiliconLabs/peripheral_examples)
 
-https://github.com/SiliconLabs/peripheral_examples
+[GSDK document](https://docs.silabs.com/gecko-platform/latest/)
 
-### GSDK document
-
-https://docs.silabs.com/gecko-platform/latest/
-
-### SS v5 user guide
-https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-overview/
+[SS v5 user guide](https://docs.silabs.com/simplicity-studio-5-users-guide/latest/ss-5-users-guide-overview/)
 
 
 
