@@ -57,14 +57,16 @@ Pins used to connect between the EFR32BG22 and IMU:
 2. In the "Debug Adapters window", click on the Thunderboard EFR32BG22 (board). The kit and debug information (board and target) should be displayed in the Launcher->Debug Adapters window. 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Debug_adapter.png"/>
 3. Information about the target hardware and software will appear in Launcher -> Overview tab (together with the Adapter FW and Secure FW version). If this does not appear, click on the Launcher button in the top right corner.
-Note: If the Secure FW showed Unknown, you could click Read FW Version on the right side of it to get the version on the device. You may also upgrade the Adapter FW to the latest if it was not the latest yet.
+Note: If the Secure FW showed as Unknown, you could click Read FW Version on the right side of it to get the version. You may also upgrade the Adapter FW to the latest if it was not the latest yet.
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/BG22_Overview.png"/>
 4. Select the "Preferred SDK" to the latest version. For this lab, the latest version of "Gecko SDK Suite" v3.1.1 is used.
 5. Click on "Create New Project" in the upper right hand corner. A "New Project Wizard" window should appear.
 6. For this lab, the Bluetooth -> SoC Empty project will be used as the starter project. Scroll and select Bluetooth -> SoC Empty. 
-Note: to filter the projects, click on Bluetooth for the "Technology Type" and empty for "keywords".
+Note: to filter the projects, Select/Checked the Bluetooth for the "Technology Type" and empty for "keywords".
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Project_filter.png"/>
 7. Click Next to move on.
 8. Rename the project under "Project name". For this lab, name the project soc_spi_acc.
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Project_rename.png"/>
 9. Select (check) "Copy contents" under "With Project files" to copy the project files into your project. This makes version control easier to manage and future updates to the Simplicity Studio libraries will not impact the copied files in this project.
 10. Check "Use default location" (workspace).
 11. Click Finish to generate the project.
