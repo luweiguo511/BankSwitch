@@ -110,7 +110,7 @@ After you add/install the motion sensor component, you will see some files was a
 
 ##### Inertial Measurement Unit GATT Service.
 After you add/install the Inertial Measurement Unit GATT Service, you will see somes other files was added.
-In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
+
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/GATT_Service.png"/>
 
@@ -118,7 +118,7 @@ If you open the config -> btconf -> gatt_configuration.btcon gatt configure file
 
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Acceleration_Orientation.png"/>
 
-In file sl_event_handler, you could see the API was added into the routine sl_internal_app_process_action.
+In file sl_event_handler.c, you could see the API sl_gatt_service_imu_step was added into the routine sl_internal_app_process_action.
 ```
 void sl_internal_app_process_action(void)
 {
@@ -129,7 +129,7 @@ void sl_internal_app_process_action(void)
 Note: UUID for Acceleration and Orientation could be attained in this step.
 
 ### Adding the Project Source Files
-17. Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path.
+17. Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. app.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path.
 
 C:\Users\user_acount\SimplicityStudio\v5_workshop\soc_spi_acc
 Where user_acount is the default workspace and SS installation path.
@@ -178,12 +178,12 @@ Use the software components->Platform->Board drivers->ICM20648->Configure to cha
 
 #### sl_icm20648.c
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\icm20648\src
-This is the driver file for ICM20648 prepared by Silabs. If you use sensor from aother vendor, you may need to consider to implement the similar driver for it.
-Please consider to contact with the vendor of the sensor you use to get help on how implementing the driver.
+This is the driver file for ICM20648 prepared by Silabs. If you use sensor from another vendor, you may need to consider implementing the similar driver for it.
+Please consider contacting with the vendor of the sensor you use to get help on how implementing the driver.
 
 
 #### sl_imu_fuse.c/ sl_imu.c/ sl_sensor_imu.c
-These are re-pack of the API provided in sl_icm20648.c. The high level code (app.c) call API like sl_sensor_imu_init, sl_sensor_imu_get and others provided in these files to initialize and enable/disable the imu sensor. These files are in folder like below:
+These are re-pack of the API provided in sl_icm20648.c. The high-level code (app.c) call API like sl_sensor_imu_init, sl_sensor_imu_get and others provided in these files to initialize and enable/disable the imu sensor. These files are in folder like below:
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\hardware\driver\imu\src
 C:\SiliconLabs\SimplicityStudio\v5\developer\sdks\gecko_sdk_suite\v3.1\app\bluetooth\common\sensor_imu
 
@@ -267,13 +267,13 @@ BG22 Thunderboard also integrated other sensors:
 - Silabs UV and ambient light sensor: I2C [Si1133](https://www.silabs.com/sensors/optical/si1133)
 - Silabs Hall effect sensor: I2C [Si7210](https://www.silabs.com/sensors/magnetic/si7210)
 
-If your solution need these sensors, you may use similar procedure to add them.
+If your solution needs these sensors, you may use similar procedure to add them.
 ### Bootloader
 The SOC Empty project don't have the bootloader, ensure to program the bootloader to the device first. In some cases, the bootloader may be missing from the device if it has been completely erased. If that happens:
 -  Optional solutions:
     -  open the Flash Programmer and program the bootloader found here:
 C:\SiliconLabs\SimplicityStudio_v5\developer\sdks\gecko_sdk_suite\v3.1\platform\bootloader\sample-apps\bootloader-storage-internal-single-512k\efr32mg22c224f512im40-brd4182a\bootloader-storage-internal-single-512k.s37
-    -  flash a demo example first (like Bluetooth SOC - thunderboard EFR32BG22), then flash the applicatin got here.
+    -  flash a demo example first (like Bluetooth SOC - thunderboard EFR32BG22), then flash the application got here.
 
 
 ## Reference
