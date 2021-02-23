@@ -89,11 +89,9 @@ In fact, the SOC Empty project will install some software components. You could 
 
 
 ### Installing the imu sensor components
-14. Open (click) the soc_spi_acc.sclp file. The Overview will show information about the target hardware and software.
-Note: Target and SDK Selection, Ensure the Board should be thunderboard EFR32BG22.
-15. Select the Software Components tab at the top.
-16. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
-17. Install the following components using the Install button as shown in the image. The process is repeated for all components needed to add.
+14. Select the Software Components tab at the top.
+15. Scroll down to the "Platform" section. Notice how there are many components available that you can install for your application with ease.
+16. Install the following components using the Install button as shown in the image. The process is repeated for all components needed to add.
 - Services -> IO stream ->IO Stream: USART (dependent).
 <img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/IO_Stream.png"/>
 
@@ -131,7 +129,8 @@ void sl_internal_app_process_action(void)
 Note: UUID for Acceleration and Orientation could be attained in this step.
 
 ### Adding the Project Source Files
-Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path.
+17. Copy app.c source file to the top level of the project. The source files (automatically added included) and code details are found at the Code Explanation section of this doc. App.c will overwrite the existing file to add the new application. The source files can be dragged and dropped into Simplicity Studio or placed in this file path.
+
 C:\Users\user_acount\SimplicityStudio\v5_workshop\soc_spi_acc
 Where user_acount is the default workspace and SS installation path.
 You can also edit the app.c file manually if you prefer to this way.
@@ -167,16 +166,37 @@ Some change was made in the app.c file.
       break;      
 ```
 ### Build and Flash the Project
-Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspective.
+18. Build the project by clicking on the hammer icon in the top left corner of the Simplicity Studio IDE perspective.
 Right-click on the hex file and select Flash to Device... to make the Flash Programmer window appear. 
 Note: if a Device Selection window appears, select the correct device.
 Click Program to flash the device.
 
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Program.png"/>
+
 ## Usage
 ### Connecting with EFR Connect App
 With the EFR Connect App, connect to the device and view the sensor data that is sent from the EFR32BG22 device (via notification).
+
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/EFR_Connect_1.png"/>
+Note: If there are many Bluetooth device around. You may try to get the ID (Serial number) of the device via Simplicity Commander first. You may also change the device name in GATT configure and use that to know what device you should connect to.
+Or filter thee scanning via RSS strength and other.
+
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/Commander.png"/>
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/UUID.png"/>
+
+
 Click the notify button, you should see the sensor data get updated regularly.
+
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/EFR_Connect_2.png"/>
+
+
 You could move the orientation of the Thunderboard to see this change.
+You could change the orientation of the Thunderboard to see this change.
+
+<img src="https://github.com/silabs-DenverL/ADCxSyncCapture/blob/master/EFR_Connect_3.png"/>
+
+
+
 
 ## Code Explanation
 The following sections explain critical lines of code pertinent to this lab. The code can be found in different files (driver).
