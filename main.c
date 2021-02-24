@@ -2,7 +2,8 @@
 #include "em_chip.h"
 #include "em_msc.h"
 
-
+/* by weiguo lu */
+// please review 
 #define APPLICATION_START_ADDR (0x00000000)
 MSC_RAMFUNC_DECLARATOR void BOOT_jump(uint32_t sp, uint32_t pc);
 
